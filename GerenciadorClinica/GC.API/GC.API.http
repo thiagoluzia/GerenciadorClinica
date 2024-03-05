@@ -1,0 +1,6 @@
+@GC.API_HostAddress = http://localhost:5170
+
+GET {{GC.API_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
