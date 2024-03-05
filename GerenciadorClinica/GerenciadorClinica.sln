@@ -3,9 +3,26 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.8.34330.188
 MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GC.API", "GC.API\GC.API.csproj", "{35D52DF2-734F-46F2-B205-6747E430729D}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "SRC", "SRC", "{DADBDB9F-CB26-4056-85A4-161508A1E12B}"
+EndProject
 Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{35D52DF2-734F-46F2-B205-6747E430729D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{35D52DF2-734F-46F2-B205-6747E430729D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{35D52DF2-734F-46F2-B205-6747E430729D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{35D52DF2-734F-46F2-B205-6747E430729D}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{35D52DF2-734F-46F2-B205-6747E430729D} = {DADBDB9F-CB26-4056-85A4-161508A1E12B}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {003FA9EC-0745-43B9-A5F0-218A5402D027}
