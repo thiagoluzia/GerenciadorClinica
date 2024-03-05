@@ -88,6 +88,42 @@
         "frameworkReferences": [
           "Microsoft.AspNetCore.App"
         ]
+      },
+      "GC.Application/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v8.0",
+        "dependencies": {
+          "GC.Infrastructure": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/GC.Application.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/GC.Application.dll": {}
+        }
+      },
+      "GC.Core/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v8.0",
+        "compile": {
+          "bin/placeholder/GC.Core.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/GC.Core.dll": {}
+        }
+      },
+      "GC.Infrastructure/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v8.0",
+        "dependencies": {
+          "GC.Core": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/GC.Infrastructure.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/GC.Infrastructure.dll": {}
+        }
       }
     }
   },
@@ -420,10 +456,26 @@
         "swashbuckle.aspnetcore.swaggerui.6.4.0.nupkg.sha512",
         "swashbuckle.aspnetcore.swaggerui.nuspec"
       ]
+    },
+    "GC.Application/1.0.0": {
+      "type": "project",
+      "path": "../GC.Application/GC.Application.csproj",
+      "msbuildProject": "../GC.Application/GC.Application.csproj"
+    },
+    "GC.Core/1.0.0": {
+      "type": "project",
+      "path": "../GC.Core/GC.Core.csproj",
+      "msbuildProject": "../GC.Core/GC.Core.csproj"
+    },
+    "GC.Infrastructure/1.0.0": {
+      "type": "project",
+      "path": "../GC.Infrastructure/GC.Infrastructure.csproj",
+      "msbuildProject": "../GC.Infrastructure/GC.Infrastructure.csproj"
     }
   },
   "projectFileDependencyGroups": {
     "net8.0": [
+      "GC.Application >= 1.0.0",
       "Swashbuckle.AspNetCore >= 6.4.0"
     ]
   },
@@ -461,7 +513,11 @@
       "frameworks": {
         "net8.0": {
           "targetAlias": "net8.0",
-          "projectReferences": {}
+          "projectReferences": {
+            "C:\\Projetos\\GerenciadorClinica\\GerenciadorClinica\\GC.Application\\GC.Application.csproj": {
+              "projectPath": "C:\\Projetos\\GerenciadorClinica\\GerenciadorClinica\\GC.Application\\GC.Application.csproj"
+            }
+          }
         }
       },
       "warningProperties": {
