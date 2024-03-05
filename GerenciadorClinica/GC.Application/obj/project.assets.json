@@ -1,11 +1,48 @@
 {
   "version": 3,
   "targets": {
-    "net8.0": {}
+    "net8.0": {
+      "GC.Core/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v8.0",
+        "compile": {
+          "bin/placeholder/GC.Core.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/GC.Core.dll": {}
+        }
+      },
+      "GC.Infrastructure/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v8.0",
+        "dependencies": {
+          "GC.Core": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/GC.Infrastructure.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/GC.Infrastructure.dll": {}
+        }
+      }
+    }
   },
-  "libraries": {},
+  "libraries": {
+    "GC.Core/1.0.0": {
+      "type": "project",
+      "path": "../GC.Core/GC.Core.csproj",
+      "msbuildProject": "../GC.Core/GC.Core.csproj"
+    },
+    "GC.Infrastructure/1.0.0": {
+      "type": "project",
+      "path": "../GC.Infrastructure/GC.Infrastructure.csproj",
+      "msbuildProject": "../GC.Infrastructure/GC.Infrastructure.csproj"
+    }
+  },
   "projectFileDependencyGroups": {
-    "net8.0": []
+    "net8.0": [
+      "GC.Infrastructure >= 1.0.0"
+    ]
   },
   "packageFolders": {
     "C:\\Users\\thiag\\.nuget\\packages\\": {},
@@ -41,7 +78,11 @@
       "frameworks": {
         "net8.0": {
           "targetAlias": "net8.0",
-          "projectReferences": {}
+          "projectReferences": {
+            "C:\\Projetos\\GerenciadorClinica\\GerenciadorClinica\\GC.Infrastructure\\GC.Infrastructure.csproj": {
+              "projectPath": "C:\\Projetos\\GerenciadorClinica\\GerenciadorClinica\\GC.Infrastructure\\GC.Infrastructure.csproj"
+            }
+          }
         }
       },
       "warningProperties": {
