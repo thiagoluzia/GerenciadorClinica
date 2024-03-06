@@ -1,4 +1,8 @@
 
+using GC.Application.ExternalServices.ViaCEP;
+using GC.Core.Entityes;
+using Microsoft.Extensions.Configuration;
+
 namespace GC.API
 {
     public class Program
@@ -9,6 +13,9 @@ namespace GC.API
 
             // Add services to the container.
 
+            //Integracoes
+            builder.Services.AddHttpClient<IViaCEPService, ViaCEPService>();
+        
             builder.Services.AddControllers();
             // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
             builder.Services.AddEndpointsApiExplorer();

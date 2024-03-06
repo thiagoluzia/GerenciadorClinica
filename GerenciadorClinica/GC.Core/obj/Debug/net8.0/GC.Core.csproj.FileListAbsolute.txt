@@ -1,0 +1,12 @@
+C:\Projetos\GerenciadorClinica\GerenciadorClinica\GC.Core\bin\Debug\net8.0\GC.Core.deps.json
+C:\Projetos\GerenciadorClinica\GerenciadorClinica\GC.Core\bin\Debug\net8.0\GC.Core.dll
+C:\Projetos\GerenciadorClinica\GerenciadorClinica\GC.Core\bin\Debug\net8.0\GC.Core.pdb
+C:\Projetos\GerenciadorClinica\GerenciadorClinica\GC.Core\obj\Debug\net8.0\GC.Core.GeneratedMSBuildEditorConfig.editorconfig
+C:\Projetos\GerenciadorClinica\GerenciadorClinica\GC.Core\obj\Debug\net8.0\GC.Core.AssemblyInfoInputs.cache
+C:\Projetos\GerenciadorClinica\GerenciadorClinica\GC.Core\obj\Debug\net8.0\GC.Core.AssemblyInfo.cs
+C:\Projetos\GerenciadorClinica\GerenciadorClinica\GC.Core\obj\Debug\net8.0\GC.Core.csproj.CoreCompileInputs.cache
+C:\Projetos\GerenciadorClinica\GerenciadorClinica\GC.Core\obj\Debug\net8.0\GC.Core.sourcelink.json
+C:\Projetos\GerenciadorClinica\GerenciadorClinica\GC.Core\obj\Debug\net8.0\GC.Core.dll
+C:\Projetos\GerenciadorClinica\GerenciadorClinica\GC.Core\obj\Debug\net8.0\refint\GC.Core.dll
+C:\Projetos\GerenciadorClinica\GerenciadorClinica\GC.Core\obj\Debug\net8.0\GC.Core.pdb
+C:\Projetos\GerenciadorClinica\GerenciadorClinica\GC.Core\obj\Debug\net8.0\ref\GC.Core.dll
