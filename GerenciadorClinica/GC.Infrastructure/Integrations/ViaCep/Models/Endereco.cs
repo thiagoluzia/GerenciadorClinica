@@ -1,8 +1,8 @@
 ﻿using System.Text.Json.Serialization;
 
-namespace GC.Application.DTOs.OutputModels
+namespace GC.Infrastructure.Integrations.ViaCep.Models
 {
-    public class EnderecoOutputMopdel
+    public class Endereco
     {
         [JsonPropertyName("cep")]
         public string? Cep { get; set; }
@@ -12,15 +12,12 @@ namespace GC.Application.DTOs.OutputModels
 
         [JsonPropertyName("bairro")]
         public string? Bairro { get; set; }
-
-        [JsonPropertyName("numero")]
-        public string? Numero { get; set; }
+        [JsonPropertyName("localidade")]
+        public string? Cidade { get; set; }
 
         [JsonPropertyName("uf")]
         public string? Uf { get; set; }
 
-        [JsonPropertyName("complemento")]
-        public string Complemento { get; set; }
     }
 }
 

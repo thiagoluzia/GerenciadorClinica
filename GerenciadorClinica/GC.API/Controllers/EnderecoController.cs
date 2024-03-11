@@ -1,4 +1,4 @@
-﻿using GC.Application.ExternalServices.ViaCEP;
+﻿using GC.Application.Services.External.ViaCEP;
 using Microsoft.AspNetCore.Mvc;
 
 namespace GC.API.Controllers
@@ -7,9 +7,9 @@ namespace GC.API.Controllers
     [ApiController]
     public class EnderecoController : ControllerBase
     {
-        private readonly IViaCEPService _service;
+        private readonly IViaCepService _service;
 
-        public EnderecoController(IViaCEPService service)
+        public EnderecoController(IViaCepService service)
         {
             _service = service;
         }
@@ -17,12 +17,20 @@ namespace GC.API.Controllers
         [HttpGet]
         public async Task<IActionResult> ConsultaEndereco(string cep)
         {
-            if (String.IsNullOrEmpty(cep))
+
+            if (cep.Length < 8)
+            {
+                return BadRequest("O cep não pode ser menor que 8 digitos.");
+            }
+
+            if (string.IsNullOrEmpty(cep))
             {
                 return BadRequest("O cep não pode ser nulo ou vazio.");
             }
 
-            var endereco = await _service.ConsultarCep(cep);
+            var cepFormatado = FormatarCep(cep);
+
+            var endereco = await _service.BuscarEnderecoAsync(cepFormatado);
 
             if(endereco.Logradouro is null)
             {
@@ -31,6 +39,11 @@ namespace GC.API.Controllers
 
 
             return Ok(endereco);
+        }
+
+        private string FormatarCep( string cep)
+        {
+            return  cep.Trim().Replace("-", "").Replace(".", "");
         }
     }
 }

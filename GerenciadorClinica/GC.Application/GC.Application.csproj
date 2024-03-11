@@ -12,6 +12,7 @@
 
   <ItemGroup>
     <Folder Include="DTOs\InputModels\" />
+    <Folder Include="DTOs\OutputModels\" />
     <Folder Include="Services\Implementations\" />
     <Folder Include="Services\Interfaces\" />
     <Folder Include="Validators\" />
