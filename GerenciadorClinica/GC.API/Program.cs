@@ -1,7 +1,5 @@
-
-using GC.Application.ExternalServices.ViaCEP;
-using GC.Core.Entityes;
-using Microsoft.Extensions.Configuration;
+using GC.Application.Services.External.ViaCEP;
+using GC.Infrastructure.Integrations.ViaCep.Services;
 
 namespace GC.API
 {
@@ -11,13 +9,17 @@ namespace GC.API
         {
             var builder = WebApplication.CreateBuilder(args);
 
-            // Add services to the container.
 
-            //Integracoes
-            builder.Services.AddHttpClient<IViaCEPService, ViaCEPService>();
+            //INTEGRAÇÕES
+            builder.Services.AddHttpClient<IApiViaCEPService, ApiViaCEPService>();
+
+            // INJEÇÃO DE DEPENDENCIAS
+            builder.Services.AddScoped<IViaCepService, ViaCepService>();
+
+
         
             builder.Services.AddControllers();
-            // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
+
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddSwaggerGen();
 

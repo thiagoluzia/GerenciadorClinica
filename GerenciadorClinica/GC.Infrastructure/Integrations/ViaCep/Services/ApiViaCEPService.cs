@@ -1,30 +1,29 @@
-﻿using GC.Application.DTOs.OutputModels;
-using Microsoft.Extensions.Configuration;
+﻿using GC.Infrastructure.Integrations.ViaCep.Models;
 using System.Text.Json;
 
-namespace GC.Application.ExternalServices.ViaCEP
+namespace GC.Infrastructure.Integrations.ViaCep.Services
 {
-    public class ViaCEPService : IViaCEPService
+    public class ApiViaCEPService : IApiViaCEPService
     {
         private readonly HttpClient _httpClient;
 
 
-        public ViaCEPService(HttpClient httpClient)
+        public ApiViaCEPService(HttpClient httpClient)
         {
             _httpClient = httpClient;
         }
 
-        public async Task<EnderecoOutputMopdel> ConsultarCep(string cep)
+        public async Task<Endereco> ConsultarCepAsync(string cep)
         {
             try
             {
                 var rquest = @$"https://viacep.com.br/ws/{cep}/json";
                 var response = await _httpClient.GetAsync(rquest);
 
-                  if (response.IsSuccessStatusCode)
+                if (response.IsSuccessStatusCode)
                 {
                     var contentStream = await response.Content.ReadAsStreamAsync();
-                    var endereco = await JsonSerializer.DeserializeAsync<EnderecoOutputMopdel>(contentStream);
+                    var endereco = await JsonSerializer.DeserializeAsync<Endereco>(contentStream);
                     return endereco;
                 }
                 else
@@ -33,11 +32,11 @@ namespace GC.Application.ExternalServices.ViaCEP
                 }
 
             }
-            catch(JsonException ex)
+            catch (JsonException ex)
             {
                 throw new JsonException("Erro ao desserializar resposta do ViaCEP.", ex);
             }
-            catch(NotSupportedException ex)
+            catch (NotSupportedException ex)
             {
                 throw new NotSupportedException("Erro de desserialização: tipo não suportado.", ex);
             }
