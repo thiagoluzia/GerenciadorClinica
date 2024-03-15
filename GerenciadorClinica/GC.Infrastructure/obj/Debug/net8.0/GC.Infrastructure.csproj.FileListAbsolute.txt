@@ -1,4 +1,5 @@
 C:\Projetos\GerenciadorClinica\GerenciadorClinica\GC.Infrastructure\bin\Debug\net8.0\GC.Infrastructure.deps.json
+C:\Projetos\GerenciadorClinica\GerenciadorClinica\GC.Infrastructure\bin\Debug\net8.0\GC.Infrastructure.runtimeconfig.json
 C:\Projetos\GerenciadorClinica\GerenciadorClinica\GC.Infrastructure\bin\Debug\net8.0\GC.Infrastructure.dll
 C:\Projetos\GerenciadorClinica\GerenciadorClinica\GC.Infrastructure\bin\Debug\net8.0\GC.Infrastructure.pdb
 C:\Projetos\GerenciadorClinica\GerenciadorClinica\GC.Infrastructure\bin\Debug\net8.0\GC.Core.dll
@@ -13,4 +14,5 @@ C:\Projetos\GerenciadorClinica\GerenciadorClinica\GC.Infrastructure\obj\Debug\ne
 C:\Projetos\GerenciadorClinica\GerenciadorClinica\GC.Infrastructure\obj\Debug\net8.0\GC.Infrastructure.dll
 C:\Projetos\GerenciadorClinica\GerenciadorClinica\GC.Infrastructure\obj\Debug\net8.0\refint\GC.Infrastructure.dll
 C:\Projetos\GerenciadorClinica\GerenciadorClinica\GC.Infrastructure\obj\Debug\net8.0\GC.Infrastructure.pdb
+C:\Projetos\GerenciadorClinica\GerenciadorClinica\GC.Infrastructure\obj\Debug\net8.0\GC.Infrastructure.genruntimeconfig.cache
 C:\Projetos\GerenciadorClinica\GerenciadorClinica\GC.Infrastructure\obj\Debug\net8.0\ref\GC.Infrastructure.dll
