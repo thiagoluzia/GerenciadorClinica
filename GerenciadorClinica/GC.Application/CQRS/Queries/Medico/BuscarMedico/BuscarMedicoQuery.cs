@@ -1,10 +1,5 @@
 ﻿using GC.Application.DTOs.OutputModels;
 using MediatR;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace GC.Application.CQRS.Queries.Medico.BuscarMedico
 {

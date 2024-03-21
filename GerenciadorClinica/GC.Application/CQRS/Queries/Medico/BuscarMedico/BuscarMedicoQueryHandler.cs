@@ -1,22 +1,24 @@
 ﻿using GC.Application.DTOs.OutputModels;
+using GC.Core.Repositories;
 using GC.Infrastructure.Persistence;
 using MediatR;
-using Microsoft.EntityFrameworkCore;
 
 namespace GC.Application.CQRS.Queries.Medico.BuscarMedico
 {
     public class BuscarMedicoQueryHandler : IRequestHandler<BuscarMedicoQuery, MedicoOutputModel>
     {
-        private readonly DBClinicaContexto _contexto;
+        private readonly IMedicoRepository _repository;
 
-        public BuscarMedicoQueryHandler(DBClinicaContexto contexto)
+        public BuscarMedicoQueryHandler(DBClinicaContexto contexto, IMedicoRepository repository)
         {
-            _contexto = contexto;
+            _repository = repository;
         }
 
         public async  Task<MedicoOutputModel> Handle(BuscarMedicoQuery request, CancellationToken cancellationToken)
         {
-            var medico = await _contexto.Medico.SingleOrDefaultAsync(x => x.Id == request.Id);
+
+            var medico = await _repository.BuscarMedicoAsync(request.Id);
+
 
             if (medico is null) return null;
 
@@ -26,14 +28,13 @@ namespace GC.Application.CQRS.Queries.Medico.BuscarMedico
                 medico.Nome,
                 medico.Sobrenome,
                 medico.DataNascimento,
+                medico.Telefone,
                 medico.Email,
                 medico.Cpf,
                 medico.TipoSanguineo,
                 medico.Endereco,
-                medico.Telefone,
                 medico.Especialidade,
                 medico.CRM
-
              );
 
             return medicoOutputModel;

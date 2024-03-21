@@ -1,4 +1,5 @@
 ﻿using GC.Application.DTOs.OutputModels;
+using GC.Core.Repositories;
 using GC.Infrastructure.Persistence;
 using MediatR;
 using Microsoft.EntityFrameworkCore;
@@ -12,15 +13,16 @@ namespace GC.Application.CQRS.Queries.Medico.BuscarMedicos
 {
     public class BuscarTodosMedicosHandler : IRequestHandler<BuscarMedicosQuery, List<MedicoOutputModel>>
     {
-        private readonly DBClinicaContexto _contexto;
+        private readonly IMedicoRepository _repository;
 
-        public BuscarTodosMedicosHandler(DBClinicaContexto context)
+        public BuscarTodosMedicosHandler(IMedicoRepository repository)
         {
-            _contexto = context;
+            _repository = repository;
         }
         public async Task<List<MedicoOutputModel>> Handle(BuscarMedicosQuery request, CancellationToken cancellationToken)
         {
-            var medicos = await _contexto.Medico.ToListAsync();
+
+            var medicos = await _repository.BuscarMedicosAsync();
 
             var medicoOutputModel = medicos
                 .Select(p => new MedicoOutputModel(
@@ -28,17 +30,16 @@ namespace GC.Application.CQRS.Queries.Medico.BuscarMedicos
                     p.Nome, 
                     p.Sobrenome, 
                     p.DataNascimento, 
-                    p.Email, p.Cpf, 
-                    p.TipoSanguineo, 
-                    p.Endereco, 
-                    p.Telefone, 
+                    p.Telefone,
+                    p.Email,
+                    p.Cpf,
+                    p.TipoSanguineo,
+                    p.Endereco,
                     p.Especialidade,
                     p.CRM))
                 .ToList();
 
             return medicoOutputModel;
-                
-                
         }
     }
 }

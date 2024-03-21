@@ -11,16 +11,16 @@ namespace GC.API.Controllers
     ///TODO: [ x ]  Criar controller CRUD
     ///TODO: [ x ]  Criar Entidade core
     ///TODO: [ x ]  Criar DTOs
-    ///TODO: [ ]  Criar Serviços 
-    ///TODO: [ ]  Criar Implemntações do serviço
+    ///TODO: [ x ]  Criar Serviços 
+    ///TODO: [ x ]  Criar Implemntações do serviço
     ///TODO: [ x ]  Criar contexto
-    ///TODO: [ ]  Criar Filters
-    ///TODO: [ ]  Criar Valitadors
+    ///TODO: [ x ]  Criar Filters
+    ///TODO: [ x ]  Criar Valitadors
     ///TODO: [ x ]  Registrar Interfaces
     ///TODO: [ x ]  Instalar dependencias (EF, FluentValidation, MediatR, SqlServer)
-    ///TODO: [ ]  Criar Repository
-    ///TODO: [ ]  Criar CQRS 
-    ///TODO: [ ]  Criar controller
+    ///TODO: [ x ]  Criar Repository
+    ///TODO: [ x ]  Criar CQRS 
+    ///TODO: [ x ]  Criar controller
     [ApiController]
     [Route("api/[Controller]")]
     public class MedicoController : ControllerBase
@@ -64,6 +64,9 @@ namespace GC.API.Controllers
            
             var id = await _mediator.Send(command);
 
+            if (id == 0)
+                return BadRequest();
+
             return CreatedAtAction(nameof(GetByIdMedicoAsync), new { id }, command);
         }
 
@@ -81,6 +84,7 @@ namespace GC.API.Controllers
             }
 
             //Atualizar
+            command.Id = medico.Id;
             await _mediator.Send(command);
 
             //Retornar
@@ -90,7 +94,10 @@ namespace GC.API.Controllers
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteMedico(int id)
         {
+            //converte em query para o mediator
             var query =  new BuscarMedicoQuery(id);
+
+            //buscar com madiator
             var medico = await _mediator.Send(query);
 
 

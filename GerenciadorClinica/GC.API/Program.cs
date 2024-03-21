@@ -10,6 +10,8 @@ using GC.API.Filters;
 //using FluentValidation.AspNetCore;
 using FluentValidation;
 using FluentValidation.AspNetCore;
+using GC.Core.Repositories;
+using GC.Infrastructure.Persistence.Repositories;
 
 
 namespace GC.API
@@ -29,6 +31,8 @@ namespace GC.API
 
             // INJEÇÃO DE DEPENDENCIAS
             builder.Services.AddScoped<IViaCepService, ViaCepService>();
+
+            builder.Services.AddScoped<IMedicoRepository, MedicoRepository>();
 
             //MEDIATOR
             //builder.Services.AddMediatR(typeof(CadastrarMedicoCommand));

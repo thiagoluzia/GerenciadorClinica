@@ -41,8 +41,8 @@ namespace GC.Core.Entityes
         public string? Cpf { get; private set; }
         public ETipoSanguineo TipoSanguineo { get; private set; }
         public string? Endereco { get; private set; }
-        public string Especialidade { get; private set; }
-        public string CRM { get; private set; }
+        public string? Especialidade { get; private set; }
+        public string? CRM { get; private set; }
 
 
         public void Atualizar(

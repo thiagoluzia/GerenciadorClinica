@@ -1,23 +1,22 @@
-﻿using GC.Application.DTOs.OutputModels;
-using GC.Infrastructure.Persistence;
+﻿using GC.Core.Repositories;
 using MediatR;
-using Microsoft.EntityFrameworkCore;
 
 namespace GC.Application.CQRS.Commands.Medico.AtualizarMedico
 {
     public class AtualizarMedicoCommandHandler : IRequestHandler<AtualizarMedicoCommand, Unit>
     {
-        private readonly DBClinicaContexto _contexto;
+        private readonly IMedicoRepository   _repositoty;
 
-        public AtualizarMedicoCommandHandler(DBClinicaContexto contexto)
+        public AtualizarMedicoCommandHandler(IMedicoRepository repositoty)
         {
-            _contexto = contexto;
+            _repositoty =  repositoty;
         }
 
         public async Task<Unit> Handle(AtualizarMedicoCommand request, CancellationToken cancellationToken)
         {
+            var medico = new Core.Entityes.Medico();
             //Buscar o medico no banco 
-            var medico = await _contexto.Medico.SingleOrDefaultAsync(x => x.Id == request.Id);
+             medico = await _repositoty.BuscarMedicoAsync(request.Id);  
 
             //Atualizar as propriedades pelo metodo medico do core 
             medico.Atualizar(
@@ -33,10 +32,9 @@ namespace GC.Application.CQRS.Commands.Medico.AtualizarMedico
                 request.CRM
                 );
 
-            //Atualizar o objeto, alterando o estado no entity
          
             //Salvar no banco de dados
-            await _contexto.SaveChangesAsync();
+            await _repositoty.AtualizarMedicoAsync(medico);
 
             //Retorna void
             return Unit.Value;
