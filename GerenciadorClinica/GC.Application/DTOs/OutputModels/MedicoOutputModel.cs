@@ -20,20 +20,6 @@ namespace GC.Application.DTOs.OutputModels
             CRM = cRM;
         }
 
-        public MedicoOutputModel(int id, string? nome, string? sobrenome, DateTime dataNascimento, string? email, string? cpf, ETipoSanguineo tipoSanguineo, string? endereco, string? telefone, string especialidade, string cRM)
-        {
-            Id = id;
-            Nome = nome;
-            Sobrenome = sobrenome;
-            DataNascimento = dataNascimento;
-            Email = email;
-            Cpf = cpf;
-            TipoSanguineo = tipoSanguineo;
-            Endereco = endereco;
-            Telefone = telefone;
-            Especialidade = especialidade;
-            CRM = cRM;
-        }
 
         public int Id { get; set; }
         public string? Nome { get; set; }

@@ -1,11 +1,11 @@
 ﻿using FluentValidation;
-using GC.Application.CQRS.Commands.Medico.CadastrarMedico;
+using GC.Application.CQRS.Commands.Medico.AtualizarMedico;
 
 namespace GC.Application.Validators
 {
-    public class CadastrarMedicoValidator : AbstractValidator<CadastrarMedicoCommand>
+    public class AtualizarMedicoValidator : AbstractValidator<AtualizarMedicoCommand>
     {
-        public CadastrarMedicoValidator()
+        public AtualizarMedicoValidator()
         {
             //Validar campos vazio
             RuleFor(x => x.Nome).NotEmpty().NotNull().WithMessage("O campo nome não pode ser nulo ou vazio.")
@@ -30,7 +30,6 @@ namespace GC.Application.Validators
             RuleFor(x => x.Especialidade).NotEmpty().NotNull().WithMessage("O campo especialidade não pode ser nulo ou vazio.");
             RuleFor(x => x.Endereco).NotEmpty().NotNull().WithMessage("O campo endereco não pode ser nulo ou vazio.");
             RuleFor(x => x.TipoSanguineo).NotEmpty().NotNull().WithMessage("O campo tipo sanguineo não pode ser nulo ou vazio.");
-
         }
     }
 }

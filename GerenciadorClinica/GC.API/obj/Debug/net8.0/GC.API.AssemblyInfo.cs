@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("GC.API")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+a2901e55da97c6e680b24fea4ae30a891da61071")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+b21f626cb60f4dc9e866849fdb28ed83b49ea174")]
 [assembly: System.Reflection.AssemblyProductAttribute("GC.API")]
 [assembly: System.Reflection.AssemblyTitleAttribute("GC.API")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
