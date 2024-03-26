@@ -11,6 +11,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Folder Include="CQRS\Queries\Paciente\BucarPacientePorTelefoneOrCpf\" />
     <Folder Include="DTOs\InputModels\" />
     <Folder Include="Services\Implementations\" />
     <Folder Include="Services\Interfaces\" />

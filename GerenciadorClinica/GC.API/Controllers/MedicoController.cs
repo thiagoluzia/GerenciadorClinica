@@ -1,6 +1,7 @@
 ﻿using GC.Application.CQRS.Commands.Medico.AtualizarMedico;
 using GC.Application.CQRS.Commands.Medico.CadastrarMedico;
 using GC.Application.CQRS.Commands.Medico.DeletarMedico;
+using GC.Application.CQRS.Commands.Paciente.CadastrarPaciente;
 using GC.Application.CQRS.Queries.Medico.BuscarMedico;
 using GC.Application.CQRS.Queries.Medico.BuscarMedicos;
 using MediatR;
@@ -59,7 +60,7 @@ namespace GC.API.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> PostMedicoAsync([FromBody]CadastrarMedicoCommand command)
+        public async Task<IActionResult> PostMedicoAsync(CadastrarMedicoCommand command)
         {
            
             var id = await _mediator.Send(command);
@@ -69,6 +70,7 @@ namespace GC.API.Controllers
 
             return CreatedAtAction(nameof(GetByIdMedicoAsync), new { id }, command);
         }
+
 
         [HttpPut("{id}")]
         public async Task<IActionResult> PutMedico([FromBody] AtualizarMedicoCommand command, int id)
