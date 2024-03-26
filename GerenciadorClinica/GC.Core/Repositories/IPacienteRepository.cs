@@ -9,6 +9,6 @@ namespace GC.Core.Repositories
         Task PostAsync(Paciente paciente);
         Task Putasync(Paciente paciente);
         Task DeleteAsync(int id);
-        Task<Paciente> GetById(int id);
+        Task<Paciente> GetByIdAsync(int id);
     }
 }

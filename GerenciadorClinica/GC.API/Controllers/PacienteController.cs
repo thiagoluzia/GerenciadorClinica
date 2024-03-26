@@ -1,15 +1,10 @@
-﻿using GC.Application.CQRS.Commands.Medico.DeletarMedico;
-using GC.Application.CQRS.Commands.Paciente.AtualizarPaciente;
+﻿using GC.Application.CQRS.Commands.Paciente.AtualizarPaciente;
 using GC.Application.CQRS.Commands.Paciente.CadastrarPaciente;
 using GC.Application.CQRS.Commands.Paciente.DeletarPaciente;
-using GC.Application.CQRS.Queries.Medico.BuscarMedico;
 using GC.Application.CQRS.Queries.Paciente.BuscarPacienteId;
 using GC.Application.CQRS.Queries.Paciente.BuscarPacientes;
-using GC.Application.DTOs.OutputModels;
-using GC.Core.Entityes;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
-using System.Reflection.Metadata.Ecma335;
 
 namespace GC.API.Controllers
 {
@@ -25,7 +20,7 @@ namespace GC.API.Controllers
         }
 
         [HttpGet]
-        public async Task<IActionResult>GetAll()
+        public async Task<IActionResult>GetAllAsync()
         {
             var query = new BuscarTodoPacientesQuery();
 
@@ -44,7 +39,7 @@ namespace GC.API.Controllers
         //}
 
         [HttpGet("{id}")]
-        public async Task<IActionResult> GetById(int id)
+        public async Task<IActionResult> GetByIdAsync(int id)
         {
             if (id == 0)
                 return BadRequest("O id, não pode ser nulo ou zero.");
@@ -60,18 +55,18 @@ namespace GC.API.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> PostAsyn(CadastrarPacienteCommand command)
+        public async Task<IActionResult> PostAsync(CadastrarPacienteCommand command)
         {
             var id = await _mediator.Send(command);
 
             if (id == 0)
                 return BadRequest();
 
-            return CreatedAtAction(nameof(GetById), new { id }, command);
+            return CreatedAtAction(nameof(GetByIdAsync), new { id }, command);
         }
 
         [HttpPut("{id}")]
-        public async Task<IActionResult> Put(int id, AtualizarPacienteCommand command)
+        public async Task<IActionResult> PutAsync(int id, AtualizarPacienteCommand command)
         {
             if (id != command.Id)
                 return BadRequest("O Id do paciente não pode ser diferente do id do paciente que deseja atualizar.");
@@ -86,11 +81,11 @@ namespace GC.API.Controllers
 
             await _mediator.Send(command);
 
-            return CreatedAtAction(nameof(GetById), new { id }, command);
+            return CreatedAtAction(nameof(GetByIdAsync), new { id }, command);
         }
 
         [HttpDelete("{id}")]
-        public async Task<IActionResult> Delete(int id)
+        public async Task<IActionResult> DeleteAsync(int id)
         {
 
             var query = new BuscarPacienteIDQuery(id);

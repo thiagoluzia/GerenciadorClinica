@@ -17,7 +17,7 @@ namespace GC.Application.CQRS.Queries.Paciente.BuscarPacienteId
         public async Task<PacienteOutputModel> Handle(BuscarPacienteIDQuery request, CancellationToken cancellationToken)
         {
 
-            var paciente = await _repository.GetById(request.Id);
+            var paciente = await _repository.GetByIdAsync(request.Id);
 
             if (paciente == null)
                 return null;

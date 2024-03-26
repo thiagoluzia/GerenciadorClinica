@@ -176,7 +176,7 @@ namespace GC.Infrastructure.Persistence.Repositories
             }
 
         }
-        public async Task<Paciente> GetById(int id)
+        public async Task<Paciente> GetByIdAsync(int id)
         {
             try
             {
