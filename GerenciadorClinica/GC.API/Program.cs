@@ -33,6 +33,7 @@ namespace GC.API
             builder.Services.AddScoped<IViaCepService, ViaCepService>();
 
             builder.Services.AddScoped<IMedicoRepository, MedicoRepository>();
+            builder.Services.AddScoped<IPacienteRepository,  PacienteRepository>();
 
             //MEDIATOR
             //builder.Services.AddMediatR(typeof(CadastrarMedicoCommand));
@@ -42,7 +43,7 @@ namespace GC.API
 
             //FILTROS DE VALIDAÇÕES
             builder.Services.AddFluentValidationAutoValidation();
-            builder.Services.AddValidatorsFromAssemblyContaining<CadastrarMedicoValidator>();
+            builder.Services.AddValidatorsFromAssemblyContaining<Validator>();
 
             //ADICIONAR CONFIGURAÇÃO DE FILTROS E VALIDAÇÕES
             builder.Services.AddControllers(options => options.Filters.Add(typeof(ValidationFilter)));

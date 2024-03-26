@@ -2,7 +2,7 @@
 {
     public static class ValidatorMethods
     {
-        public static bool ValidateCPF(string cpf)
+        public static bool ValidateCPF(string? cpf)
         {
             // Removendo caracteres não numéricos do CPF
             cpf = cpf.Replace(".", "").Replace("-", "");

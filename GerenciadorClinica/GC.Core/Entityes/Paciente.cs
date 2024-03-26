@@ -7,6 +7,9 @@ namespace GC.Core.Entityes
     /// </summary>
     public class Paciente : Pessoa
     {
+        public Paciente() 
+        {
+        }
         public Paciente(double altura, double peso, string? nome, string? sobrenome, DateTime dataNascimento, string? telefone, string? email, string? cpf, ETipoSanguineo tipoSanguineo, string? endereco)
             : base(nome, sobrenome, dataNascimento, telefone, email, cpf, tipoSanguineo, endereco)
         {
@@ -19,7 +22,7 @@ namespace GC.Core.Entityes
         public double Peso { get; private set; }
 
 
-        public void Atualizar(double altura, double peso, string? nome, string? sobrenome, DateTime dataNascimento, string? telefone, string? email, ETipoSanguineo tipoSanguineo, string? endereco)
+        public void Atualizar(double altura, double peso, string? nome, string? sobrenome, DateTime dataNascimento, string? telefone, string? email, string? cpf, ETipoSanguineo tipoSanguineo, string? endereco)
         {
             Atualizar(nome, sobrenome, dataNascimento, telefone, email, tipoSanguineo, endereco);
 

@@ -4,6 +4,9 @@ namespace GC.Core.Entityes
 {
     public abstract  class Pessoa : BaseEntity
     {
+        public Pessoa()
+        {
+        }
         /// <summary>
         /// Representa uma pessoa com informações básicas.
         /// </summary>
