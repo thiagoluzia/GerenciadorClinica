@@ -4,10 +4,10 @@ namespace GC.Core.Repositories
 {
     public interface IMedicoRepository
     {
-        Task<Medico> BuscarMedicoAsync(int id);
-        Task<IList<Medico>> BuscarMedicosAsync();
-        Task CadastrarMedicoAsync(Medico medico);
-        Task AtualizarMedicoAsync(Medico medico);
-        Task DeletarMedicoAsync(int id);
+        Task<Medico> GetByIdAsync(int id);
+        Task<IList<Medico>> GetAllAsync();
+        Task PostAsync(Medico medico);
+        Task PutAsync(Medico medico);
+        Task DeleteAsync(int id);
     }
 }

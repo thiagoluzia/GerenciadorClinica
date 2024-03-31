@@ -16,7 +16,7 @@ namespace GC.Application.CQRS.Commands.Medico.AtualizarMedico
         {
             var medico = new Core.Entityes.Medico();
             //Buscar o medico no banco 
-             medico = await _repositoty.BuscarMedicoAsync(request.Id);  
+             medico = await _repositoty.GetByIdAsync(request.Id);  
 
             //Atualizar as propriedades pelo metodo medico do core 
             medico.Atualizar(
@@ -34,7 +34,7 @@ namespace GC.Application.CQRS.Commands.Medico.AtualizarMedico
 
          
             //Salvar no banco de dados
-            await _repositoty.AtualizarMedicoAsync(medico);
+            await _repositoty.PutAsync(medico);
 
             //Retorna void
             return Unit.Value;

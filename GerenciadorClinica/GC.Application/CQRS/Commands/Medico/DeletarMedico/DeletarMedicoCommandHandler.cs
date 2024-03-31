@@ -15,7 +15,7 @@ namespace GC.Application.CQRS.Commands.Medico.DeletarMedico
         public async Task<Unit> Handle(DeletarMedicoCommand request, CancellationToken cancellationToken)
         {
 
-            await _repository.DeletarMedicoAsync(request.Id);
+            await _repository.DeleteAsync(request.Id);
 
             return Unit.Value;
         }

@@ -1,7 +1,7 @@
 ﻿using FluentValidation;
 using GC.Application.CQRS.Commands.Medico.CadastrarMedico;
 
-namespace GC.Application.Validators
+namespace GC.Application.Validators.Medico
 {
     public class CadastrarMedicoValidator : AbstractValidator<CadastrarMedicoCommand>
     {

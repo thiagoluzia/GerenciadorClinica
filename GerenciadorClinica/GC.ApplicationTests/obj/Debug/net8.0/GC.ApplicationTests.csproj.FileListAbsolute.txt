@@ -9,6 +9,8 @@ C:\Projetos\GerenciadorClinica\GerenciadorClinica\GC.ApplicationTests\bin\Debug\
 C:\Projetos\GerenciadorClinica\GerenciadorClinica\GC.ApplicationTests\bin\Debug\net8.0\GC.ApplicationTests.dll
 C:\Projetos\GerenciadorClinica\GerenciadorClinica\GC.ApplicationTests\bin\Debug\net8.0\GC.ApplicationTests.pdb
 C:\Projetos\GerenciadorClinica\GerenciadorClinica\GC.ApplicationTests\bin\Debug\net8.0\FluentValidation.dll
+C:\Projetos\GerenciadorClinica\GerenciadorClinica\GC.ApplicationTests\bin\Debug\net8.0\FluentValidation.AspNetCore.dll
+C:\Projetos\GerenciadorClinica\GerenciadorClinica\GC.ApplicationTests\bin\Debug\net8.0\FluentValidation.DependencyInjectionExtensions.dll
 C:\Projetos\GerenciadorClinica\GerenciadorClinica\GC.ApplicationTests\bin\Debug\net8.0\MediatR.dll
 C:\Projetos\GerenciadorClinica\GerenciadorClinica\GC.ApplicationTests\bin\Debug\net8.0\MediatR.Contracts.dll
 C:\Projetos\GerenciadorClinica\GerenciadorClinica\GC.ApplicationTests\bin\Debug\net8.0\Microsoft.VisualStudio.CodeCoverage.Shim.dll
@@ -151,5 +153,3 @@ C:\Projetos\GerenciadorClinica\GerenciadorClinica\GC.ApplicationTests\obj\Debug\
 C:\Projetos\GerenciadorClinica\GerenciadorClinica\GC.ApplicationTests\obj\Debug\net8.0\GC.ApplicationTests.pdb
 C:\Projetos\GerenciadorClinica\GerenciadorClinica\GC.ApplicationTests\obj\Debug\net8.0\GC.ApplicationTests.genruntimeconfig.cache
 C:\Projetos\GerenciadorClinica\GerenciadorClinica\GC.ApplicationTests\obj\Debug\net8.0\ref\GC.ApplicationTests.dll
-C:\Projetos\GerenciadorClinica\GerenciadorClinica\GC.ApplicationTests\bin\Debug\net8.0\FluentValidation.AspNetCore.dll
-C:\Projetos\GerenciadorClinica\GerenciadorClinica\GC.ApplicationTests\bin\Debug\net8.0\FluentValidation.DependencyInjectionExtensions.dll

@@ -1,4 +1,7 @@
-﻿using MediatR;
+﻿using GC.Application.CQRS.Commands.Servico.AtualizarServico;
+using GC.Application.CQRS.Queries.Servico.BuscarServico;
+using GC.Application.CQRS.Queries.Servico.BuscarServicos;
+using MediatR;
 using Microsoft.AspNetCore.Mvc;
 
 namespace GC.API.Controllers
@@ -16,15 +19,29 @@ namespace GC.API.Controllers
 
 
         [HttpGet]
-        public IActionResult GetAll()
+        public async Task<IActionResult> GetAllAsync()
         {
-            return Ok();
+            var query = new BuscarServicosQuery();
+            var servico = await _mediator.Send(query);
+
+            if(servico is null)
+                return NotFound("Nenhum serviço encontrado.");
+
+            return Ok(servico);
+
         }
 
         [HttpGet("{id}")]
-        public IActionResult GetById(int id)
+        public async Task<IActionResult> GetByIdAsync(int id)
         {
-            return Ok(); 
+            var query = new BuscarServicoQuery(id);
+
+            var servico = await _mediator.Send(query);
+
+            if (servico is null)
+                return NotFound("Serviço não encontrado.");
+
+            return Ok(servico); 
         }
 
         [HttpPost]
@@ -34,9 +51,21 @@ namespace GC.API.Controllers
         }
 
         [HttpPut("{id}")]
-        public IActionResult Put(int id, object obj)
+        public async Task<IActionResult> PutAsync(int id,AtualizarServicoCommand command)
         {
-            return Ok();
+            if (id != command.Id)
+                return BadRequest("O Id do corpo da requisição não pode ser diferente do Id que deseja atualizar.");
+
+            var query = new BuscarServicoQuery(id);
+            var servico = await _mediator.Send(query);
+
+            if (servico is null)
+                return NotFound("Serviço não encontrado.");
+
+           
+           await _mediator.Send(command);
+
+            return NoContent();
         }
 
         [HttpDelete("{id}")]

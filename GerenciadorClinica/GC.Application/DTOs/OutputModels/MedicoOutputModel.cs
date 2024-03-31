@@ -1,5 +1,4 @@
-﻿
-using GC.Core.Enums;
+﻿using GC.Core.Enums;
 
 namespace GC.Application.DTOs.OutputModels
 {
