@@ -2,6 +2,7 @@
 using GC.Core.Repositories;
 using Microsoft.Data.SqlClient;
 using Microsoft.EntityFrameworkCore;
+using System.Runtime.CompilerServices;
 
 namespace GC.Infrastructure.Persistence.Repositories
 {
@@ -73,12 +74,12 @@ namespace GC.Infrastructure.Persistence.Repositories
                 _contexto.Update(servico);
                 await _contexto.SaveChangesAsync();
             }
-            catch(DbUpdateConcurrencyException ex)
+            catch (DbUpdateConcurrencyException ex)
             {
                 var mensagemErro = $"O {nameof(Servico)} que você está tentando atualizar foi modificado por outro usuário. Recarregue os dados e tente novamente.";
                 throw new InvalidOperationException(mensagemErro, ex);
             }
-            catch(DbUpdateException ex)
+            catch (DbUpdateException ex)
             {
                 var mensagemErro = "Erro ao tentar gravar.";
 
@@ -89,7 +90,7 @@ namespace GC.Infrastructure.Persistence.Repositories
 
                 throw new InvalidOperationException(mensagemErro, ex);
             }
-            catch(OperationCanceledException ex)
+            catch (OperationCanceledException ex)
             {
                 var mensagemErro = "A operação foi cancelada.";
                 throw new InvalidOperationException(mensagemErro, ex);
@@ -99,7 +100,7 @@ namespace GC.Infrastructure.Persistence.Repositories
                 var mensagemErro = "Ocorreu um erro ao processar sua solicitação. Por favor, tente novamente mais tarde.";
                 throw new InvalidOperationException(mensagemErro, ex);
             }
-            
+
         }
 
         public async Task PutAsync(Servico servico)
@@ -109,12 +110,12 @@ namespace GC.Infrastructure.Persistence.Repositories
                 _contexto.Update(servico);
                 await _contexto.SaveChangesAsync();
             }
-            catch(DbUpdateConcurrencyException ex)
+            catch (DbUpdateConcurrencyException ex)
             {
-                var mensagemErro = $"O {nameof(Servico)} que esta tentando atualizar, ja foi modificado, por outro usuário. Recarregue os dados e tente novamente.";
-                throw new InvalidOperationException(mensagemErro , ex);
+                var mensagemErro = $"O {nameof(Servico)} que esta tentando atualizar, já foi modificado, por outro usuário. Recarregue os dados e tente novamente.";
+                throw new InvalidOperationException(mensagemErro, ex);
             }
-            catch(DbUpdateException ex)
+            catch (DbUpdateException ex)
             {
                 var mensagemErro = "Erro ao tentar gravar.";
 
@@ -123,7 +124,7 @@ namespace GC.Infrastructure.Persistence.Repositories
 
                 throw new InvalidOperationException(mensagemErro, ex);
             }
-            catch(OperationCanceledException ex)
+            catch (OperationCanceledException ex)
             {
                 var mensagemErro = "Operação foi cancelada.";
                 throw new InvalidOperationException(mensagemErro, ex);
@@ -133,7 +134,42 @@ namespace GC.Infrastructure.Persistence.Repositories
                 var mensagemErro = "Ocorreu um erro ao processar sua solicitação. Por favor, tente novamente mais tarde.";
                 throw new InvalidOperationException(mensagemErro, ex);
             }
-           
+
+        }
+
+        public async Task Delete(int id)
+        {
+            try
+            {
+                var servico = await _contexto.Servicos.SingleOrDefaultAsync(x => x.Id == id);
+
+                _contexto.Servicos.Remove(servico);
+                await _contexto.SaveChangesAsync();
+            }
+            catch (DbUpdateConcurrencyException ex)
+            {
+                var mesnagemErro = $"O {nameof(Servico)} que esta tentando deletar, já foi modificado por outro usuário. Recarregue os dados e tente novamente.";
+                throw new InvalidOperationException(mesnagemErro, ex);
+            }
+            catch (DbUpdateException ex)
+            {
+                var mensagemErro = "Erro ao tentar deletar.";
+
+                if (ex.InnerException is SqlException sqlException)
+                    mensagemErro = $"Error SQL {sqlException.Number}:{sqlException.Message}";
+
+                throw new InvalidOperationException(mensagemErro, ex);
+            }
+            catch (OperationCanceledException ex)
+            {
+                var mensagemErro = "Operação foi cancelada.";
+                throw new InvalidOperationException(mensagemErro, ex);
+            }
+            catch (Exception ex)
+            {
+                var mensagemErro = "Ocorreu um erro ao processar sua solicitação. Por favor, tente novamente mais tarde.";
+                throw new InvalidOperationException(mensagemErro, ex);
+            }
         }
     }
 }

@@ -73,7 +73,7 @@ namespace GC.API.Controllers
 
 
         [HttpPut("{id}")]
-        public async Task<IActionResult> PutMedico([FromBody] AtualizarMedicoCommand command, int id)
+        public async Task<IActionResult> PutMedico(AtualizarMedicoCommand command, int id)
         {
             //Buscar o medico 
             var query = new BuscarMedicoQuery(id);

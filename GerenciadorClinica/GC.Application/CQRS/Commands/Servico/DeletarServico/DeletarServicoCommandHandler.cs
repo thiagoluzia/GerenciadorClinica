@@ -1,17 +1,24 @@
-﻿using MediatR;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using GC.Core.Repositories;
+using MediatR;
 
 namespace GC.Application.CQRS.Commands.Servico.DeletarServico
 {
     public class DeletarServicoCommandHandler : IRequestHandler<DeletarServicoCommand, Unit>
     {
-        public Task<Unit> Handle(DeletarServicoCommand request, CancellationToken cancellationToken)
+        private readonly IServicoRepository _repository;
+
+
+        public DeletarServicoCommandHandler(IServicoRepository repositor)
         {
-            throw new NotImplementedException();
+            _repository = repositor;
+        }
+
+
+        public async Task<Unit> Handle(DeletarServicoCommand request, CancellationToken cancellationToken)
+        {
+            await _repository.Delete(request.Id);
+
+            return Unit.Value;
         }
     }
 }

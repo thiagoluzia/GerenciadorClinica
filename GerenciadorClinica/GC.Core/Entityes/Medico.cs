@@ -7,8 +7,8 @@ namespace GC.Core.Entityes
     /// </summary>
     public class Medico : BaseEntity
     {
-        public Medico()
-        { }
+        public Medico(){}
+
         public Medico(
             string nome, 
             string sobrenome, 
@@ -33,6 +33,8 @@ namespace GC.Core.Entityes
             TipoSanguineo = tipoSanguineo;
             Endereco = endereco;
         }
+
+
         public string? Nome { get; private set; }
         public string? Sobrenome { get; private set; }
         public DateTime DataNascimento { get; private set; }

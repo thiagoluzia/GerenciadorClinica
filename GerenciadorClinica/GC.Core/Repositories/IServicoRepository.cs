@@ -8,5 +8,6 @@ namespace GC.Core.Repositories
         Task PutAsync(Servico servico);
         Task<Servico> GetByIdAsync(int id);
         Task<List<Servico>> GetAllAsync();
+        Task Delete(int id);
     }
 }
