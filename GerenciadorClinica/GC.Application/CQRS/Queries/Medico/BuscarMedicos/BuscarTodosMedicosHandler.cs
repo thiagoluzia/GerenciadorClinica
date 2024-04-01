@@ -22,7 +22,7 @@ namespace GC.Application.CQRS.Queries.Medico.BuscarMedicos
         public async Task<List<MedicoOutputModel>> Handle(BuscarMedicosQuery request, CancellationToken cancellationToken)
         {
 
-            var medicos = await _repository.BuscarMedicosAsync();
+            var medicos = await _repository.GetAllAsync();
 
             var medicoOutputModel = medicos
                 .Select(p => new MedicoOutputModel(

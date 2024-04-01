@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace GC.Application.Validators
+namespace GC.Application.Validators.Paciente
 {
     public class AtualizarPacienteValidator : AbstractValidator<AtualizarPacienteCommand>
     {

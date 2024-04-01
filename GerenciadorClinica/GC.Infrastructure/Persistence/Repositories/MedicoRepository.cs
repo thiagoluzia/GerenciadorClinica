@@ -13,23 +13,29 @@ namespace GC.Infrastructure.Persistence.Repositories
             _contexto = contexto;
         }
 
-        public async Task AtualizarMedicoAsync(Medico medico)
+        public async Task PutAsync(Medico medico)
         {
             try
             {
                 _contexto.Update(medico);
                 await _contexto.SaveChangesAsync();
             }
-            catch (ArgumentNullException ex)
-            {
-                var mensagemErro = $"Erro ao tentar atualizar o {nameof(Medico)} informado, livro não encontrado. O contexto do banco de dados não pode ser nulo.";
-                throw new InvalidOperationException(mensagemErro, ex);
-            }
             catch (DbUpdateConcurrencyException ex)
             {
                 var mensagemErro = $"O {nameof(Medico)} que você está tentando atualizar foi modificado por outro usuário. Recarregue os dados e tente novamente.";
                 throw new InvalidOperationException(mensagemErro, ex);
 
+            }
+            catch(DbUpdateException ex)
+            {
+                var mensagemErro = "Erro ao tentar gravar.";
+
+                if (ex.InnerException is SqlException sqlException)
+                {
+                    mensagemErro = $" Error SQL {sqlException.Number}: {sqlException.Message}";
+                }
+
+                throw new InvalidOperationException(mensagemErro, ex);
             }
             catch (OperationCanceledException ex)
             {
@@ -43,7 +49,7 @@ namespace GC.Infrastructure.Persistence.Repositories
             }
         }
 
-        public async Task<Medico> BuscarMedicoAsync(int id)
+        public async Task<Medico> GetByIdAsync(int id)
         {
             try
             {
@@ -68,7 +74,7 @@ namespace GC.Infrastructure.Persistence.Repositories
             }
         }
 
-        public async Task<IList<Medico>> BuscarMedicosAsync()
+        public async Task<IList<Medico>> GetAllAsync()
         {
             try
             {
@@ -93,7 +99,7 @@ namespace GC.Infrastructure.Persistence.Repositories
             }
         }
 
-        public async Task CadastrarMedicoAsync(Medico medico)
+        public async Task PostAsync(Medico medico)
         {
             try
             {
@@ -128,7 +134,7 @@ namespace GC.Infrastructure.Persistence.Repositories
             }
         }
 
-        public async  Task DeletarMedicoAsync(int id)
+        public async  Task DeleteAsync(int id)
         {
             try
             {

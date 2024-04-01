@@ -1,7 +1,7 @@
 ﻿using FluentValidation;
 using GC.Application.CQRS.Commands.Medico.AtualizarMedico;
 
-namespace GC.Application.Validators
+namespace GC.Application.Validators.Medico
 {
     public class AtualizarMedicoValidator : AbstractValidator<AtualizarMedicoCommand>
     {

@@ -34,6 +34,7 @@ namespace GC.API
 
             builder.Services.AddScoped<IMedicoRepository, MedicoRepository>();
             builder.Services.AddScoped<IPacienteRepository,  PacienteRepository>();
+            builder.Services.AddScoped<IServicoRepository, ServicoRepository>();
 
             //MEDIATOR
             //builder.Services.AddMediatR(typeof(CadastrarMedicoCommand));

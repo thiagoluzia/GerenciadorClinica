@@ -1,7 +1,7 @@
 ﻿using FluentValidation;
 using GC.Application.CQRS.Commands.Paciente.CadastrarPaciente;
 
-namespace GC.Application.Validators
+namespace GC.Application.Validators.Paciente
 {
     public class CadastrarPacienteValidator : AbstractValidator<CadastrarPacienteCommand>
     {

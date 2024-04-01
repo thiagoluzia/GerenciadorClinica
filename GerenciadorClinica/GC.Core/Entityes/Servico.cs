@@ -1,10 +1,13 @@
-﻿namespace GC.Core.Entityes
+﻿using System.ComponentModel.DataAnnotations.Schema;
+
+namespace GC.Core.Entityes
 {
     /// <summary>
     /// Representa um serviço oferecido na clínica, como consultas médicas, exames, procedimentos cirúrgicos, etc.
     /// </summary>
     public class Servico : BaseEntity
     {
+        public Servico(){}
         public Servico(string? nome, string? descricao, decimal valor, int duracao)
         {
             Nome = nome;

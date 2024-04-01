@@ -68,12 +68,13 @@ namespace GC.API.Controllers
             if (id == 0)
                 return BadRequest();
 
-            return CreatedAtAction(nameof(GetByIdMedicoAsync), new { id }, command);
+            //return CreatedAtAction(nameof(GetByIdMedicoAsync), new { id }, command);
+            return Ok(command);
         }
 
 
         [HttpPut("{id}")]
-        public async Task<IActionResult> PutMedico([FromBody] AtualizarMedicoCommand command, int id)
+        public async Task<IActionResult> PutMedico(AtualizarMedicoCommand command, int id)
         {
             //Buscar o medico 
             var query = new BuscarMedicoQuery(id);

@@ -32,7 +32,7 @@ namespace GC.Application.CQRS.Commands.Medico.CadastrarMedico
                 request.CRM
                 );
 
-            await _repository.CadastrarMedicoAsync(medico);
+            await _repository.PostAsync(medico);
 
             return medico.Id;
           

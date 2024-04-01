@@ -17,7 +17,7 @@ namespace GC.Application.CQRS.Queries.Medico.BuscarMedico
         public async  Task<MedicoOutputModel> Handle(BuscarMedicoQuery request, CancellationToken cancellationToken)
         {
 
-            var medico = await _repository.BuscarMedicoAsync(request.Id);
+            var medico = await _repository.GetByIdAsync(request.Id);
 
 
             if (medico is null) return null;
