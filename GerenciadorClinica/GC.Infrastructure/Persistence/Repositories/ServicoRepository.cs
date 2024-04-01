@@ -2,7 +2,6 @@
 using GC.Core.Repositories;
 using Microsoft.Data.SqlClient;
 using Microsoft.EntityFrameworkCore;
-using System.Runtime.CompilerServices;
 
 namespace GC.Infrastructure.Persistence.Repositories
 {
@@ -71,12 +70,12 @@ namespace GC.Infrastructure.Persistence.Repositories
         {
             try
             {
-                _contexto.Update(servico);
+                await _contexto.Servicos.AddAsync(servico);
                 await _contexto.SaveChangesAsync();
             }
             catch (DbUpdateConcurrencyException ex)
             {
-                var mensagemErro = $"O {nameof(Servico)} que você está tentando atualizar foi modificado por outro usuário. Recarregue os dados e tente novamente.";
+                var mensagemErro = $"O {nameof(Servico)} que você está tentando cadastrar foi modificado por outro usuário. Recarregue os dados e tente novamente.";
                 throw new InvalidOperationException(mensagemErro, ex);
             }
             catch (DbUpdateException ex)

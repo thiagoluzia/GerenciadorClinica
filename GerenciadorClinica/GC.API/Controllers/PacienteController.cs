@@ -62,7 +62,9 @@ namespace GC.API.Controllers
             if (id == 0)
                 return BadRequest();
 
-            return CreatedAtAction(nameof(GetByIdAsync), new { id }, command);
+            //return CreatedAtAction(nameof(GetByIdAsync), new { id }, command);
+            return Ok(command);
+
         }
 
         [HttpPut("{id}")]

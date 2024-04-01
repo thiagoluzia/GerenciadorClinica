@@ -68,7 +68,8 @@ namespace GC.API.Controllers
             if (id == 0)
                 return BadRequest();
 
-            return CreatedAtAction(nameof(GetByIdMedicoAsync), new { id }, command);
+            //return CreatedAtAction(nameof(GetByIdMedicoAsync), new { id }, command);
+            return Ok(command);
         }
 
 

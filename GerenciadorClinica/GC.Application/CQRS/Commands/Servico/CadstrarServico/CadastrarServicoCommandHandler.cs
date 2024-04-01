@@ -1,12 +1,32 @@
-﻿using MediatR;
+﻿using GC.Core.Repositories;
+using MediatR;
 
 namespace GC.Application.CQRS.Commands.Servico.CadstrarServico
 {
     public class CadastrarServicoCommandHandler : IRequestHandler<CadastrarServicoCommand, int>
     {
-        public Task<int> Handle(CadastrarServicoCommand request, CancellationToken cancellationToken)
+        private readonly IServicoRepository _repository;
+
+
+        public CadastrarServicoCommandHandler(IServicoRepository repository)
         {
-            throw new NotImplementedException();
+            _repository = repository;
+        }
+
+
+        public async Task<int> Handle(CadastrarServicoCommand request, CancellationToken cancellationToken)
+        {
+            var servico = new Core.Entityes.Servico(
+                request.Nome,
+                request.Descricao,
+                request.Valor,
+                request.Duracao
+                );
+
+            await _repository.PostAysnc(servico);
+
+            return servico.Id;
+
         }
     }
 }

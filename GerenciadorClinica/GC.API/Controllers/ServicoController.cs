@@ -1,4 +1,5 @@
 ﻿using GC.Application.CQRS.Commands.Servico.AtualizarServico;
+using GC.Application.CQRS.Commands.Servico.CadstrarServico;
 using GC.Application.CQRS.Commands.Servico.DeletarServico;
 using GC.Application.CQRS.Queries.Servico.BuscarServico;
 using GC.Application.CQRS.Queries.Servico.BuscarServicos;
@@ -46,9 +47,17 @@ namespace GC.API.Controllers
         }
 
         [HttpPost]
-        public IActionResult Post(object obj)
+        public async Task<IActionResult> Post(CadastrarServicoCommand command)
         {
-            return Ok();
+
+            var id = await _mediator.Send(command);
+
+            if (id == 0)
+                return BadRequest();
+
+            //return CreatedAtAction(nameof(GetByIdAsync), new { id }, command);
+            return Ok(command);
+
         }
 
         [HttpPut("{id}")]
