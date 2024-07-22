@@ -1,5 +1,5 @@
 ﻿using FluentValidation;
-using GC.Application.CQRS.Commands.Paciente.CadastrarPaciente;
+using GC.Application.CQRS.Commands.Pacientes.CadastrarPaciente;
 
 namespace GC.Application.Validators.Paciente
 {
@@ -7,26 +7,54 @@ namespace GC.Application.Validators.Paciente
     {
         public CadastrarPacienteValidator()
         {
-            RuleFor(x => x.Nome).NotEmpty().WithMessage("O campo nome não pode ser nulo ou vazio.")
-                .NotNull().WithMessage("O campo nome não pode ser nulo")
-                .Length(4, 160).WithMessage("O campo nome deve conter entre 5 à 160 caracteres.");
+            RuleFor(x => x.Nome)
+                   .NotEmpty()
+                   .NotNull()
+                   .WithMessage(ValidatorMethods.MensagemCampoVazioNulo(nameof(CadastrarPacienteCommand.Nome)))
+                   .Length(4, 160)
+                   .WithMessage(ValidatorMethods.MensagemTamanhoCampo(nameof(CadastrarPacienteCommand.Nome), 4, 160));
 
-            RuleFor(x => x.Sobrenome).NotEmpty().NotNull().WithMessage("O campo sobrenome não pode ser nulo ou vazio.")
-                .Length(4, 160).WithMessage("O campo sobrenome deve conter entre 5 à 160 caracteres.");
+            RuleFor(x => x.Sobrenome)
+                .NotEmpty()
+                .NotNull()
+                .WithMessage(ValidatorMethods.MensagemCampoVazioNulo(nameof(CadastrarPacienteCommand.Sobrenome)))
+                .Length(4, 160)
+                .WithMessage(ValidatorMethods.MensagemTamanhoCampo(nameof(CadastrarPacienteCommand.Sobrenome), 4, 160));
 
-            RuleFor(x => x.Email).NotEmpty().NotNull().WithMessage("O campo Email não pode ser nulo ou vazio.")
-                .EmailAddress().WithMessage("Insira um E-mail valido.");
-
-            RuleFor(x => x.Cpf).NotEmpty().NotNull().WithMessage("O campo cpf não pode ser nulo ou vazio.");
+            RuleFor(x => x.Email)
+                .NotEmpty()
+                .NotNull()
+                .WithMessage(ValidatorMethods.MensagemCampoVazioNulo(nameof(CadastrarPacienteCommand.Email)))
+                .EmailAddress()
+                .WithMessage(ValidatorMethods.MensagemCampoInvalido(nameof(CadastrarPacienteCommand.Email)));
 
             RuleFor(x => x.Cpf)
-                .NotEmpty().NotNull().WithMessage("O campo cpf não pode ser nulo ou vazio.")
-                .Must(ValidatorMethods.ValidateCPF).WithMessage("CPF inválido");
+                .NotEmpty()
+                .NotNull()
+                .WithMessage(ValidatorMethods.MensagemCampoVazioNulo(nameof(CadastrarPacienteCommand.Cpf)))
+                .Must(ValidatorMethods.ValidateCPF)
+                .WithMessage(ValidatorMethods.MensagemCampoInvalido(nameof(CadastrarPacienteCommand.Cpf)));
 
-            RuleFor(x => x.DataNascimento).NotEmpty().NotNull().WithMessage("O campo data de nascimento não pode ser nulo ou vazio.");
-            RuleFor(x => x.Telefone).NotEmpty().NotNull().WithMessage("O campo telefone não pode ser nulo ou vazio.");
-            RuleFor(x => x.Endereco).NotEmpty().NotNull().WithMessage("O campo endereco não pode ser nulo ou vazio.");
-            RuleFor(x => x.TipoSanguineo).NotEmpty().NotNull().WithMessage("O campo tipo sanguineo não pode ser nulo ou vazio.");
+
+            RuleFor(x => x.DataNascimento)
+                .NotEmpty()
+                .NotNull()
+                .WithMessage(ValidatorMethods.MensagemCampoVazioNulo(nameof(CadastrarPacienteCommand.DataNascimento)));
+
+            RuleFor(x => x.Telefone)
+                .NotEmpty()
+                .NotNull()
+                .WithMessage(ValidatorMethods.MensagemCampoVazioNulo(nameof(CadastrarPacienteCommand.Telefone)));
+
+            RuleFor(x => x.Endereco)
+                .NotEmpty()
+                .NotNull()
+                .WithMessage(ValidatorMethods.MensagemCampoVazioNulo(nameof(CadastrarPacienteCommand.Endereco)));
+
+            RuleFor(x => x.TipoSanguineo)
+                .NotEmpty()
+                .NotNull()
+                .WithMessage(ValidatorMethods.MensagemCampoVazioNulo(nameof(CadastrarPacienteCommand.TipoSanguineo)));
 
         }
     }

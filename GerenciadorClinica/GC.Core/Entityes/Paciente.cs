@@ -7,24 +7,35 @@ namespace GC.Core.Entityes
     /// </summary>
     public class Paciente : Pessoa
     {
-        public Paciente() 
-        {
-        }
-        public Paciente(double altura, double peso, string? nome, string? sobrenome, DateTime dataNascimento, string? telefone, string? email, string? cpf, ETipoSanguineo tipoSanguineo, string? endereco)
+        public double Altura { get; private set; }
+        public double Peso { get; private set; }
+        public List<Atendimento> Atendimentos { get; private set; }
+
+
+        public Paciente(
+            double altura, 
+            double peso, 
+            string? nome, 
+            string? sobrenome, 
+            DateTime dataNascimento, 
+            string? telefone, 
+            string? email, 
+            string? cpf, 
+            ETipoSanguineo tipoSanguineo, 
+            Endereco endereco)
             : base(nome, sobrenome, dataNascimento, telefone, email, cpf, tipoSanguineo, endereco)
         {
             Altura = altura;
             Peso = peso;
+            Atendimentos = new List<Atendimento>();
         }
 
-
-        public double Altura { get; private set; }
-        public double Peso { get; private set; }
+        protected Paciente() { }
 
 
-        public void Atualizar(double altura, double peso, string? nome, string? sobrenome, DateTime dataNascimento, string? telefone, string? email, string? cpf, ETipoSanguineo tipoSanguineo, string? endereco)
+        public void Atualizar(double altura, double peso, string? nome, string? sobrenome, DateTime dataNascimento, string? telefone, string? email, string? cpf, ETipoSanguineo tipoSanguineo, Endereco endereco)
         {
-            Atualizar(nome, sobrenome, dataNascimento, telefone, email, tipoSanguineo, endereco);
+            Atualizar(nome, sobrenome, dataNascimento, telefone, email, tipoSanguineo, endereco, cpf);
 
             Altura = altura;
             Peso = peso;

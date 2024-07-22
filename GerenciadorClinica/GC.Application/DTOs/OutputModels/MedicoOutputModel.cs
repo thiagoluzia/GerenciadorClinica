@@ -1,10 +1,35 @@
-﻿using GC.Core.Enums;
+﻿using GC.Core.Entityes;
+using GC.Core.Enums;
 
 namespace GC.Application.DTOs.OutputModels
 {
     public class MedicoOutputModel
     {
-        public MedicoOutputModel(int id, string? nome, string? sobrenome, DateTime dataNascimento, string? telefone, string? email, string? cpf, ETipoSanguineo tipoSanguineo, string? endereco, string? especialidade, string? cRM)
+        public int Id { get; set; }
+        public string? Nome { get; set; }
+        public string? Sobrenome { get; set; }
+        public DateTime DataNascimento { get; set; }
+        public string? Telefone { get; set; }
+        public string? Email { get; set; }
+        public string? Cpf { get; set; }
+        public ETipoSanguineo TipoSanguineo { get; set; }
+        public Endereco? Endereco { get; set; }
+        public string? Especialidade { get; set; }
+        public string? CRM { get; set; }
+
+
+        public MedicoOutputModel(
+            int id,
+            string? nome,
+            string? sobrenome,
+            DateTime dataNascimento,
+            string? telefone,
+            string? email,
+            string? cpf,
+            ETipoSanguineo tipoSanguineo,
+            Endereco? endereco,
+            string? especialidade,
+            string? cRM)
         {
             Id = id;
             Nome = nome;
@@ -18,18 +43,5 @@ namespace GC.Application.DTOs.OutputModels
             Especialidade = especialidade;
             CRM = cRM;
         }
-
-
-        public int Id { get; set; }
-        public string? Nome { get; set; }
-        public string? Sobrenome { get; set; }
-        public DateTime DataNascimento { get; set; }
-        public string? Telefone { get; set; }
-        public string? Email { get; set; }
-        public string? Cpf { get; set; }
-        public ETipoSanguineo TipoSanguineo { get; set; }
-        public string? Endereco { get; set; }
-        public string? Especialidade { get; set; }
-        public string? CRM { get; set; }
     }
 }

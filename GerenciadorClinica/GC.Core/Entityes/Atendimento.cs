@@ -7,19 +7,10 @@ namespace GC.Core.Entityes
     /// </summary>
     public class Atendimento : BaseEntity
     {
-        public Atendimento(int idPaciente,  int idServico, string? convenio, DateTime inicio, DateTime fim, ETipoAtendimento tipoAtendimento) 
-        {
-            IdPaciente = idPaciente;
-            IdServico = idServico;
-            Convenio = convenio;
-            Inicio = inicio;
-            Fim = fim;
-            TipoAtendimento = tipoAtendimento;
-        }
-
         public int IdPaciente { get; private set; }
-        public Pessoa? NomePaciente { get; private set; }
-        public Pessoa? NomeMedico { get; private set; }
+        public Paciente? NomePaciente { get; private set; }
+        public int IdMedico { get; private set; }
+        public Medico? NomeMedico { get; private set; }
         public int IdServico  { get; private set; }
         public Servico? NomeServico { get; private set; }
         public string? Convenio { get; private set; }
@@ -28,7 +19,7 @@ namespace GC.Core.Entityes
         public ETipoAtendimento TipoAtendimento { get; private set; }
 
 
-        public void  Atualizar(int idPaciente, int idServico, string? convenio, DateTime inicio, DateTime fim, ETipoAtendimento tipoAtendimento)
+        public Atendimento(int idPaciente, int idMedico, int idServico, string? convenio, DateTime inicio, DateTime fim, ETipoAtendimento tipoAtendimento)
         {
             IdPaciente = idPaciente;
             IdServico = idServico;
@@ -36,6 +27,21 @@ namespace GC.Core.Entityes
             Inicio = inicio;
             Fim = fim;
             TipoAtendimento = tipoAtendimento;
+            IdMedico = idMedico;
+        }
+
+        protected Atendimento() { }
+
+
+        public void  Atualizar(int idPaciente, int idMedico, int idServico, string? convenio, DateTime inicio, DateTime fim, ETipoAtendimento tipoAtendimento)
+        {
+            IdPaciente = idPaciente;
+            IdServico = idServico;
+            Convenio = convenio;
+            Inicio = inicio;
+            Fim = fim;
+            TipoAtendimento = tipoAtendimento;
+            IdMedico = idMedico;
         }
 
     }

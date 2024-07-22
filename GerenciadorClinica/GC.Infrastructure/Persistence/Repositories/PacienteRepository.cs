@@ -137,18 +137,8 @@ namespace GC.Infrastructure.Persistence.Repositories
 
             try
             {
-               var updatePaciente = new Paciente();
-
-                updatePaciente.Atualizar( paciente.Altura,
-                    paciente.Peso,
-                    paciente.Nome,
-                    paciente.Sobrenome,
-                    paciente.DataNascimento,
-                    paciente.Telefone,
-                    paciente.Email,
-                    paciente.Cpf,
-                    paciente.TipoSanguineo,
-                    paciente.Endereco);
+                
+                
 
                 await _contexto.SaveChangesAsync();
             }

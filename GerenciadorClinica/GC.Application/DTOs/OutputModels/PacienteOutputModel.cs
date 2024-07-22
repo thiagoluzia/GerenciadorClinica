@@ -1,11 +1,11 @@
-﻿
+﻿using GC.Core.Entityes;
 using GC.Core.Enums;
 
 namespace GC.Application.DTOs.OutputModels
 {
     public class PacienteOutputModel
     {
-        public PacienteOutputModel(int id, double altura, double peso, string? nome, string? sobrenome, DateTime dataNascimento, string? telefone, string? email, string? cpf, ETipoSanguineo tipoSanguineo, string? endereco)
+        public PacienteOutputModel(int id, double altura, double peso, string? nome, string? sobrenome, DateTime dataNascimento, string? telefone, string? email, string? cpf, ETipoSanguineo tipoSanguineo, Endereco? endereco)
         {
             Id = id;
             Altura = altura;
@@ -31,6 +31,6 @@ namespace GC.Application.DTOs.OutputModels
         public string? Email { get; set; }
         public string? Cpf { get; set; }
         public ETipoSanguineo TipoSanguineo { get; set; }
-        public string? Endereco { get; set; }
+        public Endereco? Endereco { get; set; }
     }
 }

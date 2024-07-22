@@ -4,9 +4,16 @@ namespace GC.Core.Entityes
 {
     public abstract  class Pessoa : BaseEntity
     {
-        public Pessoa()
-        {
-        }
+        public string? Nome { get; private set; }
+        public string? Sobrenome { get; private set; }
+        public DateTime DataNascimento { get; private set; }
+        public string? Telefone { get; private set; }
+        public string? Email { get; private set; }
+        public string? Cpf { get; private set; }
+        public ETipoSanguineo TipoSanguineo { get; private set; }
+        public Endereco? Endereco { get; private set; }
+
+
         /// <summary>
         /// Representa uma pessoa com informações básicas.
         /// </summary>
@@ -18,7 +25,7 @@ namespace GC.Core.Entityes
         /// <param name="cpf">O número do CPF da pessoa.</param>
         /// <param name="tipoSanguineo">O tipo sanguíneo da pessoa.</param>
         /// <param name="endereco">O endereço da pessoa.</param>
-        public Pessoa(string? nome, string? sobrenome, DateTime dataNascimento, string? telefone, string? email, string? cpf, ETipoSanguineo tipoSanguineo, string? endereco)
+        public Pessoa(string? nome, string? sobrenome, DateTime dataNascimento, string? telefone, string? email, string? cpf, ETipoSanguineo tipoSanguineo, Endereco? endereco)
         {
             Nome = nome;
             Sobrenome = sobrenome;
@@ -30,18 +37,10 @@ namespace GC.Core.Entityes
             Endereco = endereco;
         }
 
-
-        public string? Nome { get; private set; }
-        public string? Sobrenome { get; private set; }
-        public DateTime DataNascimento { get; private set; }
-        public string? Telefone { get; private set; }
-        public string? Email { get; private set; }
-        public string? Cpf { get; private set; }
-        public ETipoSanguineo TipoSanguineo { get; private set; }
-        public string? Endereco { get; private set; }
+        protected Pessoa() { }
 
 
-        public virtual  void Atualizar(string? nome, string? sobrenome, DateTime dataNascimento, string? telefone, string? email, ETipoSanguineo tipoSanguineo, string? endereco)
+        public virtual  void Atualizar(string? nome, string? sobrenome, DateTime dataNascimento, string? telefone, string? email, ETipoSanguineo tipoSanguineo, Endereco? endereco,string? cpf)
         {
             Nome = nome;
             Sobrenome = sobrenome;
@@ -50,6 +49,7 @@ namespace GC.Core.Entityes
             Email = email;
             TipoSanguineo = tipoSanguineo;
             Endereco = endereco;
+            Cpf  = cpf;
         }
 
     }

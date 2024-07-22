@@ -19,7 +19,7 @@ namespace GC.Application.Services.External.ViaCEP
             var endereco = await _service.ConsultarCepAsync(cep);
 
             var enderecoOutputModel = new EnderecoOutputModel(
-                endereco.Cep
+                  endereco.Cep
                 , endereco.Logradouro
                 , endereco.Bairro
                 , endereco.Cidade

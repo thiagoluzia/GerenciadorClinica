@@ -5,6 +5,6 @@ namespace GC.Infrastructure.Integrations.ViaCep.Services
 {
     public interface IApiViaCEPService
     {
-        Task<Endereco> ConsultarCepAsync(string cep);
+        Task<Endereco?> ConsultarCepAsync(string cep);
     }
 }

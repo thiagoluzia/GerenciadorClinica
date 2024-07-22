@@ -13,6 +13,7 @@ namespace GC.Infrastructure.Persistence
         public DbSet<Medico> Medico { get; set; }
         public DbSet<Paciente> Pacientes { get; set; }
         public DbSet<Servico> Servicos { get; set; }
+        public DbSet<Atendimento> Atendimento { get; set; }
 
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)

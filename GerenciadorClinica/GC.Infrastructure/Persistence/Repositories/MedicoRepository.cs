@@ -8,10 +8,12 @@ namespace GC.Infrastructure.Persistence.Repositories
     public class MedicoRepository : IMedicoRepository
     {
         private readonly DBClinicaContexto _contexto;
+
         public MedicoRepository(DBClinicaContexto contexto)
         {
             _contexto = contexto;
         }
+
 
         public async Task PutAsync(Medico medico)
         {
@@ -74,6 +76,11 @@ namespace GC.Infrastructure.Persistence.Repositories
             }
         }
 
+        /// <summary>
+        /// Buscar todos os medicos.
+        /// </summary>
+        /// <returns>Uma coleção coleção de  <see cref="Medico"/>.</returns>
+        /// <exception cref="InvalidOperationException"></exception>
         public async Task<IList<Medico>> GetAllAsync()
         {
             try

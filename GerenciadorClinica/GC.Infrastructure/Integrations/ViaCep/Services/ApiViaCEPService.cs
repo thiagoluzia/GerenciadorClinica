@@ -13,7 +13,7 @@ namespace GC.Infrastructure.Integrations.ViaCep.Services
             _httpClient = httpClient;
         }
 
-        public async Task<Endereco> ConsultarCepAsync(string cep)
+        public async Task<Endereco?> ConsultarCepAsync(string cep)
         {
             try
             {

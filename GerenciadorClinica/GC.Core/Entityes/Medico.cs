@@ -5,71 +5,47 @@ namespace GC.Core.Entityes
     /// <summary>
     /// Representa um médico que trabalha na clínica, fornecendo serviços médicos aos pacientes.
     /// </summary>
-    public class Medico : BaseEntity
+    public class Medico : Pessoa
     {
-        public Medico(){}
-
-        public Medico(
-            string nome, 
-            string sobrenome, 
-            DateTime dataNascimento, 
-            string telefone, 
-            string email, 
-            string cpf, 
-            ETipoSanguineo 
-            tipoSanguineo, 
-            string endereco, 
-            string especialidade, 
-            string crm)
-        {
-            Especialidade = especialidade;
-            CRM = crm;
-            Nome = nome;
-            Sobrenome = sobrenome;
-            DataNascimento = dataNascimento;
-            Telefone = telefone;
-            Email = email;
-            Cpf = cpf;
-            TipoSanguineo = tipoSanguineo;
-            Endereco = endereco;
-        }
-
-
-        public string? Nome { get; private set; }
-        public string? Sobrenome { get; private set; }
-        public DateTime DataNascimento { get; private set; }
-        public string? Telefone { get; private set; }
-        public string? Email { get; private set; }
-        public string? Cpf { get; private set; }
-        public ETipoSanguineo TipoSanguineo { get; private set; }
-        public string? Endereco { get; private set; }
         public string? Especialidade { get; private set; }
         public string? CRM { get; private set; }
+        public List<Atendimento> Atendimentos { get; private set; }
+        public int IdAtendimento { get; private set; }
 
 
-        public void Atualizar(
+
+
+        public Medico(
             string nome,
             string sobrenome,
             DateTime dataNascimento,
             string telefone,
             string email,
             string cpf,
-            ETipoSanguineo tipoSanguineo,
-            string endereco,
+            ETipoSanguineo
+            tipoSanguineo,
+            Endereco? endereco,
             string especialidade,
-            string crm)
+            string crm) : base(nome, sobrenome, dataNascimento, telefone, email, cpf, tipoSanguineo, endereco)
         {
+            Especialidade = especialidade;
+            CRM = crm;
+
+            Atendimentos = new List<Atendimento>();
+        }
+
+        protected Medico() { }
+
+
+        public  void Atualizar(string? nome, string? sobrenome, DateTime dataNascimento, string? telefone, string? email, ETipoSanguineo tipoSanguineo, Endereco endereco, string especialidade,
+            string crm, string cpf)
+        {
+            base.Atualizar(nome, sobrenome, dataNascimento, telefone, email, tipoSanguineo, endereco, cpf);
 
             Especialidade = especialidade;
             CRM = crm;
-            Nome = nome;
-            Sobrenome = sobrenome;
-            DataNascimento = dataNascimento;
-            Telefone = telefone;
-            Email = email;
-            Cpf = cpf;
-            TipoSanguineo = tipoSanguineo;
-            Endereco = endereco;
+
         }
+
     }
 }

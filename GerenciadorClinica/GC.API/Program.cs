@@ -1,17 +1,7 @@
-using GC.Application.CQRS.Commands.Medico.CadastrarMedico;
-using GC.Application.Services.External.ViaCEP;
-using GC.Infrastructure.Integrations.ViaCep.Services;
-using GC.Infrastructure.Persistence;
+using GC.API.Extensions;
+using GC.Application.Extensions;
+using GC.Infrastructure.Extensions;
 using Microsoft.EntityFrameworkCore;
-using MediatR;
-using GC.Application.CQRS;
-using GC.Application.Validators;
-using GC.API.Filters;
-//using FluentValidation.AspNetCore;
-using FluentValidation;
-using FluentValidation.AspNetCore;
-using GC.Core.Repositories;
-using GC.Infrastructure.Persistence.Repositories;
 
 
 namespace GC.API
@@ -21,40 +11,18 @@ namespace GC.API
         public static void Main(string[] args)
         {
             var builder = WebApplication.CreateBuilder(args);
-
-            //CONTEXTO:
             var connectionString = builder.Configuration.GetConnectionString("DBClinicaCS");
-            builder.Services.AddDbContext<DBClinicaContexto>(options =>  options.UseSqlServer(connectionString));
 
-            //INTEGRA합ES
-            builder.Services.AddHttpClient<IApiViaCEPService, ApiViaCEPService>();
+            #region DEPOIS
 
-            // INJE플O DE DEPENDENCIAS
-            builder.Services.AddScoped<IViaCepService, ViaCepService>();
+            builder.Services.AddGcApplication();
+            builder.Services.AddInfrastructure(connectionString);
+            builder.Services.AddGcApi();
 
-            builder.Services.AddScoped<IMedicoRepository, MedicoRepository>();
-            builder.Services.AddScoped<IPacienteRepository,  PacienteRepository>();
-            builder.Services.AddScoped<IServicoRepository, ServicoRepository>();
-
-            //MEDIATOR
-            //builder.Services.AddMediatR(typeof(CadastrarMedicoCommand));
-            builder.Services.AddMediatR(config => config.RegisterServicesFromAssemblyContaining<CQRS>());
-           //builder.Services.AddMediatR(config => config.RegisterServicesFromAssemblyContaining<CadastrarMedicoCommand>());
-
-
-            //FILTROS DE VALIDA합ES
-            builder.Services.AddFluentValidationAutoValidation();
-            builder.Services.AddValidatorsFromAssemblyContaining<Validator>();
-
-            //ADICIONAR CONFIGURA플O DE FILTROS E VALIDA합ES
-            builder.Services.AddControllers(options => options.Filters.Add(typeof(ValidationFilter)));
-           
-            builder.Services.AddEndpointsApiExplorer();
-            builder.Services.AddSwaggerGen();
+            #endregion
 
             var app = builder.Build();
 
-            // Configure the HTTP request pipeline.
             if (app.Environment.IsDevelopment())
             {
                 app.UseSwagger();
@@ -62,12 +30,8 @@ namespace GC.API
             }
 
             app.UseHttpsRedirection();
-
             app.UseAuthorization();
-
-
             app.MapControllers();
-
             app.Run();
         }
     }

@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "nya2Qz2K4ffVh88XoBxrPEW0RNKucw6cB786BVpGNPJ3cpDuA4GIE+82EwEnlCKbTTTC5DfEyfZAVZAoAcRjMA==",
+  "dgSpecHash": "lg6EynZvWvlvQ0Oewg3C0pWIiFB7E+oRtVVZLVz8GU06qZYU618GUYSuwcOm+9Cvt1Xv98lTeD5k6HYv+xiy6Q==",
   "success": true,
-  "projectFilePath": "C:\\Projetos\\GerenciadorClinica\\GerenciadorClinica\\GC.Core\\GC.Core.csproj",
+  "projectFilePath": "D:\\source\\GerenciadorClinica\\GerenciadorClinica\\GC.Core\\GC.Core.csproj",
   "expectedPackageFiles": [],
   "logs": []
 }

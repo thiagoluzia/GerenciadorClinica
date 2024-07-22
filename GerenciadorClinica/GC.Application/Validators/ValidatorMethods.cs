@@ -2,6 +2,11 @@
 {
     public static class ValidatorMethods
     {
+        /// <summary>
+        /// Metodo  para validação de CPF
+        /// </summary>
+        /// <param name="cpf">CPF</param>
+        /// <returns><see cref="bool"/></returns>
         public static bool ValidateCPF(string? cpf)
         {
             // Removendo caracteres não numéricos do CPF
@@ -51,5 +56,47 @@
             // Se todas as verificações passaram, o CPF é válido
             return true;
         }
+
+        /// <summary>
+        /// Método para retorno de mensagem de campo vazio ou nullo.
+        /// </summary>
+        /// <param name="campo">Um nameof de um campo</param>
+        /// <returns><see cref="String"/> Mensagem tratada.</returns>
+        public static string MensagemCampoVazioNulo(string campo)
+        {
+            if (string.IsNullOrEmpty(campo))
+                return "Campo vazio!";
+
+            return $"O campo {campo} não pode ser vazio ou nulo.";
+        }
+
+        /// <summary>
+        /// Método para retorno de mensagem de campo inválido.
+        /// </summary>
+        /// <param name="campo">Um nameof de um campo</param>
+        /// <returns><see cref="String"/> Mensagem tratada.</returns>
+        public static string MensagemCampoInvalido(string campo)
+        {
+            if (string.IsNullOrEmpty(campo))
+                return "Campo vazio!";
+
+            return $"Insira um valor válido para o campo {campo}.";
+        }
+
+        /// <summary>
+        /// Método para retorno de mensagem de range de tamanho.
+        /// </summary>
+        /// <param name="campo">Um nameof de um campo</param>
+        /// <param name="minimo">Valor minimo.</param>
+        /// <param name="maximo">Valor maximo</param>
+        /// <returns><see cref="String"/> Mensagem tratada.</returns>
+        public static string MensagemTamanhoCampo(string campo, int minimo, int maximo)
+        {
+            if (string.IsNullOrEmpty(campo))
+                return "Campo vazio!";
+
+            return $"O {campo} deve conter entre {minimo} à {maximo} caracteres.";
+        }
+
     }
 }
