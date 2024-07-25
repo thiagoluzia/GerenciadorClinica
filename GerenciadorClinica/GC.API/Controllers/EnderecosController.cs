@@ -17,7 +17,7 @@ namespace GC.API.Controllers
         [HttpGet]
         public async Task<IActionResult> ConsultaEndereco(string cep)
         {
-            throw new Exception();
+            
             if (cep.Length < 8)
             {
                 return BadRequest("O cep não pode ser menor que 8 digitos.");
@@ -39,6 +39,15 @@ namespace GC.API.Controllers
 
 
             return Ok(endereco);
+        }
+
+        [HttpGet("ERROR")]
+        public async Task<IActionResult> ConsultaEnderecoComException(string cep)
+        {
+            throw new Exception();
+           
+
+            return Ok();
         }
 
         private string FormatarCep( string cep)
