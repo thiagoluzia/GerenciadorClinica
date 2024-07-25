@@ -11,6 +11,7 @@ namespace GC.Core.Entityes
         public string? CRM { get; private set; }
         public List<Atendimento> Atendimentos { get; private set; }
         public int IdAtendimento { get; private set; }
+        public string? IdCalendarAgenda { get; private set; }
 
 
 
@@ -26,10 +27,12 @@ namespace GC.Core.Entityes
             tipoSanguineo,
             Endereco? endereco,
             string especialidade,
-            string crm) : base(nome, sobrenome, dataNascimento, telefone, email, cpf, tipoSanguineo, endereco)
+            string crm,
+            string? idCalendarAgenda) : base(nome, sobrenome, dataNascimento, telefone, email, cpf, tipoSanguineo, endereco)
         {
             Especialidade = especialidade;
             CRM = crm;
+            IdCalendarAgenda = IdCalendarAgenda;
 
             Atendimentos = new List<Atendimento>();
         }
@@ -38,12 +41,13 @@ namespace GC.Core.Entityes
 
 
         public  void Atualizar(string? nome, string? sobrenome, DateTime dataNascimento, string? telefone, string? email, ETipoSanguineo tipoSanguineo, Endereco endereco, string especialidade,
-            string crm, string cpf)
+            string crm, string cpf, string idCalendarAgenda)
         {
             base.Atualizar(nome, sobrenome, dataNascimento, telefone, email, tipoSanguineo, endereco, cpf);
 
             Especialidade = especialidade;
             CRM = crm;
+            IdCalendarAgenda = idCalendarAgenda;
 
         }
 

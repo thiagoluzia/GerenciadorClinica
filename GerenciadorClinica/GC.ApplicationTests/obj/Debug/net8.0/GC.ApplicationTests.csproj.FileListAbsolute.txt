@@ -308,3 +308,4 @@ D:\source\GerenciadorClinica\GerenciadorClinica\GC.ApplicationTests\obj\Debug\ne
 D:\source\GerenciadorClinica\GerenciadorClinica\GC.ApplicationTests\obj\Debug\net8.0\GC.ApplicationTests.pdb
 D:\source\GerenciadorClinica\GerenciadorClinica\GC.ApplicationTests\obj\Debug\net8.0\GC.ApplicationTests.genruntimeconfig.cache
 D:\source\GerenciadorClinica\GerenciadorClinica\GC.ApplicationTests\obj\Debug\net8.0\ref\GC.ApplicationTests.dll
+D:\source\GerenciadorClinica\GerenciadorClinica\GC.ApplicationTests\bin\Debug\net8.0\Microsoft.Extensions.DependencyInjection.Abstractions.dll

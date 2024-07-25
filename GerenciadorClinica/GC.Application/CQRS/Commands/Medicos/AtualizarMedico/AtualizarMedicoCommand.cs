@@ -17,20 +17,22 @@ namespace GC.Application.CQRS.Commands.Medicos.AtualizarMedico
         public Endereco Endereco { get; private set; }
         public string? Especialidade { get; private set; }
         public string? CRM { get; private set; }
+        public string? IdCalendarAgenda { get; set; }
 
 
         public AtualizarMedicoCommand(
             int id, 
-            string? nome, 
-            string? sobrenome, 
-            DateTime dataNascimento, 
-            string? telefone, 
-            string? email, 
-            string? cpf, 
-            ETipoSanguineo tipoSanguineo, 
-            Endereco endereco, 
-            string? especialidade, 
-            string? cRM)
+            string? nome,
+            string? sobrenome,
+            DateTime dataNascimento,
+            string? telefone,
+            string? email,
+            string? cpf,
+            ETipoSanguineo tipoSanguineo,
+            Endereco endereco,
+            string? especialidade,
+            string? cRM,
+            string? idCalendarAgenda)
         {
             Id = id;
             Nome = nome;
@@ -43,6 +45,7 @@ namespace GC.Application.CQRS.Commands.Medicos.AtualizarMedico
             Endereco = endereco;
             Especialidade = especialidade;
             CRM = cRM;
+            IdCalendarAgenda = idCalendarAgenda;
         }
 
     }

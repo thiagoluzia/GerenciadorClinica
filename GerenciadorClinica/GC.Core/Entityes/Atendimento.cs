@@ -17,6 +17,7 @@ namespace GC.Core.Entityes
         public DateTime Inicio { get; private set; }
         public DateTime Fim { get; private set; }
         public ETipoAtendimento TipoAtendimento { get; private set; }
+        public string? IdEvento { get; private set; }
 
 
         public Atendimento(int idPaciente, int idMedico, int idServico, string? convenio, DateTime inicio, DateTime fim, ETipoAtendimento tipoAtendimento)
@@ -44,5 +45,9 @@ namespace GC.Core.Entityes
             IdMedico = idMedico;
         }
 
+        public void AtualizarEvento(string idEvento)
+        {
+            IdEvento = idEvento;
+        }
     }
 }

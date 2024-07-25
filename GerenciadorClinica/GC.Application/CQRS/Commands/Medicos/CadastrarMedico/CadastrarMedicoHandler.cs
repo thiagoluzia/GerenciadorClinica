@@ -29,7 +29,8 @@ namespace GC.Application.CQRS.Commands.Medicos.CadastrarMedico
                 request.TipoSanguineo,
                 request.Endereco,
                 request.Especialidade,
-                request.CRM
+                request.CRM,
+                request.IdCalendarAgenda
                 );
 
             await _repository.PostAsync(medico);

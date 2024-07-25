@@ -9,11 +9,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
 
-namespace GC.Infrastructure.Persistence.Migrations
+namespace GC.Infrastructure.Migrations
 {
     [DbContext(typeof(DBClinicaContexto))]
-    [Migration("20240716222139_AjuetsesEndereco")]
-    partial class AjuetsesEndereco
+    [Migration("20240724222125_Iniciando")]
+    partial class Iniciando
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -47,9 +47,6 @@ namespace GC.Infrastructure.Persistence.Migrations
                     b.Property<DateTime>("Inicio")
                         .HasColumnType("datetime2");
 
-                    b.Property<int?>("PacienteId")
-                        .HasColumnType("int");
-
                     b.Property<int>("TipoAtendimento")
                         .HasColumnType("int");
 
@@ -58,8 +55,6 @@ namespace GC.Infrastructure.Persistence.Migrations
                     b.HasIndex("IdPaciente");
 
                     b.HasIndex("IdServico");
-
-                    b.HasIndex("PacienteId");
 
                     b.ToTable("Atendimento");
                 });
@@ -180,6 +175,12 @@ namespace GC.Infrastructure.Persistence.Migrations
                         .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
+                    b.HasOne("GC.Core.Entityes.Paciente", null)
+                        .WithMany("Atendimentos")
+                        .HasForeignKey("Id")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+
                     b.HasOne("GC.Core.Entityes.Paciente", "NomePaciente")
                         .WithMany()
                         .HasForeignKey("IdPaciente")
@@ -191,10 +192,6 @@ namespace GC.Infrastructure.Persistence.Migrations
                         .HasForeignKey("IdServico")
                         .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
-
-                    b.HasOne("GC.Core.Entityes.Paciente", null)
-                        .WithMany("Atendimentos")
-                        .HasForeignKey("PacienteId");
 
                     b.Navigation("NomeMedico");
 

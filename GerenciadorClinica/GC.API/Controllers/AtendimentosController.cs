@@ -21,8 +21,8 @@ namespace GC.API.Controllers
             return Ok();
         }
 
-        [HttpGet("{id}")]
-        public IActionResult GetById(int id)
+        [HttpGet("servico/{id}/data/{data}")]
+        public IActionResult GetById(int id, DateTime data)
         {
             return Ok();
         }

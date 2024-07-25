@@ -36,7 +36,8 @@ namespace GC.Application.CQRS.Queries.Medicos.BuscarMedico
                 medico.TipoSanguineo,
                 medico.Endereco,
                 medico.Especialidade,
-                medico.CRM
+                medico.CRM,
+                medico.IdCalendarAgenda
              );
 
             return medicoOutputModel;

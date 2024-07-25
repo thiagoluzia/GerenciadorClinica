@@ -36,7 +36,8 @@ namespace GC.Application.CQRS.Queries.Medicos.BuscarMedicos
                     p.TipoSanguineo,
                     p.Endereco,
                     p.Especialidade,
-                    p.CRM))
+                    p.CRM,
+                    p.IdCalendarAgenda))
                 .ToList();
 
             return medicoOutputModel;

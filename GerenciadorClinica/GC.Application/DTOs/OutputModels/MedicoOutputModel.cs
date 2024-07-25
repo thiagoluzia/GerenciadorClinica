@@ -16,6 +16,7 @@ namespace GC.Application.DTOs.OutputModels
         public Endereco? Endereco { get; set; }
         public string? Especialidade { get; set; }
         public string? CRM { get; set; }
+        public string? IdCalendarAgenda { get; set; }
 
 
         public MedicoOutputModel(
@@ -29,7 +30,9 @@ namespace GC.Application.DTOs.OutputModels
             ETipoSanguineo tipoSanguineo,
             Endereco? endereco,
             string? especialidade,
-            string? cRM)
+            string? cRM,
+            string? idCalendarAgenda
+            )
         {
             Id = id;
             Nome = nome;
@@ -42,6 +45,7 @@ namespace GC.Application.DTOs.OutputModels
             Endereco = endereco;
             Especialidade = especialidade;
             CRM = cRM;
+            IdCalendarAgenda = idCalendarAgenda;
         }
     }
 }

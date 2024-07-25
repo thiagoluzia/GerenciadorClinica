@@ -1,4 +1,5 @@
-﻿using GC.API.Filters;
+﻿using GC.API.ExeptionHandler;
+using GC.API.Filters;
 
 namespace GC.API.Extensions
 {
@@ -25,6 +26,10 @@ namespace GC.API.Extensions
             {
                 options.SuppressAsyncSuffixInActionNames = false;
             });
+
+            //HANDLERS
+            services.AddExceptionHandler<ApiExceptionHandler>();
+            services.AddProblemDetails();
         }
     }
 }

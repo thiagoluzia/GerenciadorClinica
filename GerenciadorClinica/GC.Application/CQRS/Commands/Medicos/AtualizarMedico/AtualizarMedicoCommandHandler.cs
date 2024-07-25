@@ -28,8 +28,8 @@ namespace GC.Application.CQRS.Commands.Medicos.AtualizarMedico
                 request.Endereco,
                 request.Especialidade,
                 request.CRM,
-                request.Cpf
-
+                request.Cpf,
+                request.IdCalendarAgenda
                 );
 
 
