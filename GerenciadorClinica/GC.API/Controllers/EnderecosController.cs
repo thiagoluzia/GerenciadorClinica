@@ -9,10 +9,12 @@ namespace GC.API.Controllers
     {
         private readonly IViaCepService _service;
 
+
         public EnderecosController(IViaCepService service)
         {
             _service = service;
         }
+
 
         [HttpGet]
         public async Task<IActionResult> ConsultaEndereco(string cep)
@@ -45,9 +47,6 @@ namespace GC.API.Controllers
         public async Task<IActionResult> ConsultaEnderecoComException(string cep)
         {
             throw new Exception();
-           
-
-            return Ok();
         }
 
         private string FormatarCep( string cep)

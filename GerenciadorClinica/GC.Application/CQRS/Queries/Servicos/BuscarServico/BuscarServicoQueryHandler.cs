@@ -8,6 +8,7 @@ namespace GC.Application.CQRS.Queries.Servicos.BuscarServico
     {
         private readonly IServicoRepository _repository;
 
+
         public BuscarServicoQueryHandler(IServicoRepository repository)
         {
             _repository = repository;
@@ -19,7 +20,7 @@ namespace GC.Application.CQRS.Queries.Servicos.BuscarServico
             var servico = await _repository.GetByIdAsync(request.Id);
 
             if (servico is null)
-                return null;
+                return default;
 
             var servicoOutputModel = new ServicoOutputModel(
                 servico.Id, 

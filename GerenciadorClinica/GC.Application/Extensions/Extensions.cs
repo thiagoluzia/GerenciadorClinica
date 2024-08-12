@@ -1,6 +1,7 @@
 ﻿using FluentValidation;
 using FluentValidation.AspNetCore;
 using GC.Application.CQRS;
+using GC.Application.Services.External.GoogleCalendar;
 using GC.Application.Services.External.ViaCEP;
 using GC.Application.Validators;
 using Microsoft.Extensions.DependencyInjection;
@@ -20,6 +21,7 @@ namespace GC.Application.Extensions
         {
             //SERVIÇOS
             services.AddScoped<IViaCepService, ViaCepService>();
+            services.AddScoped<IGoogleCalendarService, GoogleCalendarService>();
 
             //MEDIATOR
             services.AddMediatR(config => config.RegisterServicesFromAssemblyContaining<CQRSContract>());

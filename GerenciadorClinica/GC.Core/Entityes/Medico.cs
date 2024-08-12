@@ -9,8 +9,7 @@ namespace GC.Core.Entityes
     {
         public string? Especialidade { get; private set; }
         public string? CRM { get; private set; }
-        public List<Atendimento> Atendimentos { get; private set; }
-        public int IdAtendimento { get; private set; }
+        public List<Agendamento> Agendamentos { get; private set; }
         public string? IdCalendarAgenda { get; private set; }
 
 
@@ -32,9 +31,9 @@ namespace GC.Core.Entityes
         {
             Especialidade = especialidade;
             CRM = crm;
-            IdCalendarAgenda = IdCalendarAgenda;
+            IdCalendarAgenda = idCalendarAgenda;
 
-            Atendimentos = new List<Atendimento>();
+            Agendamentos = new List<Agendamento>();
         }
 
         protected Medico() { }

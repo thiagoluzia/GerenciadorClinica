@@ -10,6 +10,11 @@ namespace GC.Infrastructure.Persistence.Configuration
         {
             builder.HasKey(x => x.Id);
 
+            builder.HasMany(s => s.Atendimentos)
+                  .WithOne(a => a.Servico)
+                  .HasForeignKey(a => a.IdServico)
+                  .OnDelete(DeleteBehavior.Restrict);
+
             builder.Property(x => x.Valor)
                 .HasColumnType("decimal(18,2)");
         }

@@ -9,6 +9,7 @@
         public string? Descricao { get; private set; }
         public decimal Valor { get; private set; }
         public int Duracao { get; private set; }
+        public List<Agendamento> Atendimentos { get; private set; }
 
 
         public Servico(string? nome, string? descricao, decimal valor, int duracao)
@@ -17,6 +18,7 @@
             Descricao = descricao;
             Valor = valor;
             Duracao = duracao;
+            Atendimentos =  new List<Agendamento>();
         }
 
         public Servico() { }

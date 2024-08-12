@@ -22,10 +22,13 @@ namespace GC.Infrastructure.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder, 1L, 1);
 
-            modelBuilder.Entity("GC.Core.Entityes.Atendimento", b =>
+            modelBuilder.Entity("GC.Core.Entityes.Agendamento", b =>
                 {
                     b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
                         .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
 
                     b.Property<string>("Convenio")
                         .HasColumnType("nvarchar(max)");
@@ -53,11 +56,13 @@ namespace GC.Infrastructure.Migrations
 
                     b.HasKey("Id");
 
+                    b.HasIndex("IdMedico");
+
                     b.HasIndex("IdPaciente");
 
                     b.HasIndex("IdServico");
 
-                    b.ToTable("Atendimento");
+                    b.ToTable("Agendamentos");
                 });
 
             modelBuilder.Entity("GC.Core.Entityes.Medico", b =>
@@ -82,9 +87,6 @@ namespace GC.Infrastructure.Migrations
 
                     b.Property<string>("Especialidade")
                         .HasColumnType("nvarchar(max)");
-
-                    b.Property<int>("IdAtendimento")
-                        .HasColumnType("int");
 
                     b.Property<string>("IdCalendarAgenda")
                         .HasColumnType("nvarchar(max)");
@@ -171,37 +173,31 @@ namespace GC.Infrastructure.Migrations
                     b.ToTable("Servicos");
                 });
 
-            modelBuilder.Entity("GC.Core.Entityes.Atendimento", b =>
+            modelBuilder.Entity("GC.Core.Entityes.Agendamento", b =>
                 {
-                    b.HasOne("GC.Core.Entityes.Medico", "NomeMedico")
-                        .WithMany("Atendimentos")
-                        .HasForeignKey("Id")
+                    b.HasOne("GC.Core.Entityes.Medico", "Medico")
+                        .WithMany("Agendamentos")
+                        .HasForeignKey("IdMedico")
                         .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
-                    b.HasOne("GC.Core.Entityes.Paciente", null)
-                        .WithMany("Atendimentos")
-                        .HasForeignKey("Id")
-                        .OnDelete(DeleteBehavior.Restrict)
-                        .IsRequired();
-
-                    b.HasOne("GC.Core.Entityes.Paciente", "NomePaciente")
-                        .WithMany()
+                    b.HasOne("GC.Core.Entityes.Paciente", "Paciente")
+                        .WithMany("Agendamentos")
                         .HasForeignKey("IdPaciente")
                         .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
-                    b.HasOne("GC.Core.Entityes.Servico", "NomeServico")
-                        .WithMany()
+                    b.HasOne("GC.Core.Entityes.Servico", "Servico")
+                        .WithMany("Atendimentos")
                         .HasForeignKey("IdServico")
                         .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
-                    b.Navigation("NomeMedico");
+                    b.Navigation("Medico");
 
-                    b.Navigation("NomePaciente");
+                    b.Navigation("Paciente");
 
-                    b.Navigation("NomeServico");
+                    b.Navigation("Servico");
                 });
 
             modelBuilder.Entity("GC.Core.Entityes.Medico", b =>
@@ -298,10 +294,15 @@ namespace GC.Infrastructure.Migrations
 
             modelBuilder.Entity("GC.Core.Entityes.Medico", b =>
                 {
-                    b.Navigation("Atendimentos");
+                    b.Navigation("Agendamentos");
                 });
 
             modelBuilder.Entity("GC.Core.Entityes.Paciente", b =>
+                {
+                    b.Navigation("Agendamentos");
+                });
+
+            modelBuilder.Entity("GC.Core.Entityes.Servico", b =>
                 {
                     b.Navigation("Atendimentos");
                 });

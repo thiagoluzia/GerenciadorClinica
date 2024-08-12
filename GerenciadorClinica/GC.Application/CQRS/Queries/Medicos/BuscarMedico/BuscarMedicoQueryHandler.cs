@@ -11,18 +11,19 @@ namespace GC.Application.CQRS.Queries.Medicos.BuscarMedico
     {
         private readonly IMedicoRepository _repository;
 
+
         public BuscarMedicoQueryHandler(DBClinicaContexto contexto, IMedicoRepository repository)
         {
             _repository = repository;
         }
 
-        public async  Task<MedicoOutputModel> Handle(BuscarMedicoQuery request, CancellationToken cancellationToken)
-        {
 
+        public async Task<MedicoOutputModel> Handle(BuscarMedicoQuery request, CancellationToken cancellationToken)
+        {
             var medico = await _repository.GetByIdAsync(request.Id);
 
-
-            if (medico is null) return null;
+            if (medico is null)
+                return default;
 
             var medicoOutputModel = new MedicoOutputModel
             (

@@ -28,7 +28,10 @@
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "C:\\Program Files\\dotnet\\library-packs": {},
-          "https://api.nuget.org/v3/index.json": {}
+          "D:\\source\\Cadastro\\Core\\bin\\Release": {},
+          "https://api.nuget.org/v3/index.json": {},
+          "https://thiagomoura.pkgs.visualstudio.com/2f3ab448-da2a-4a71-b7ec-68de68ccfaac/_packaging/InternalUtil/nuget/v3/index.json": {},
+          "https://thiagomoura.pkgs.visualstudio.com/53ac8218-792a-48dd-aca3-50c16bad75d5/_packaging/NuGetPrivado/nuget/v3/index.json": {}
         },
         "frameworks": {
           "net8.0": {
@@ -53,6 +56,10 @@
             "FluentValidation.AspNetCore": {
               "target": "Package",
               "version": "[11.3.0, )"
+            },
+            "Google.Apis.Calendar.v3": {
+              "target": "Package",
+              "version": "[1.68.0.3473, )"
             },
             "MediatR": {
               "target": "Package",
@@ -107,7 +114,10 @@
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "C:\\Program Files\\dotnet\\library-packs": {},
-          "https://api.nuget.org/v3/index.json": {}
+          "D:\\source\\Cadastro\\Core\\bin\\Release": {},
+          "https://api.nuget.org/v3/index.json": {},
+          "https://thiagomoura.pkgs.visualstudio.com/2f3ab448-da2a-4a71-b7ec-68de68ccfaac/_packaging/InternalUtil/nuget/v3/index.json": {},
+          "https://thiagomoura.pkgs.visualstudio.com/53ac8218-792a-48dd-aca3-50c16bad75d5/_packaging/NuGetPrivado/nuget/v3/index.json": {}
         },
         "frameworks": {
           "net8.0": {
@@ -124,6 +134,12 @@
       "frameworks": {
         "net8.0": {
           "targetAlias": "net8.0",
+          "dependencies": {
+            "Google.Apis.Calendar.v3": {
+              "target": "Package",
+              "version": "[1.68.0.3473, )"
+            }
+          },
           "imports": [
             "net461",
             "net462",
@@ -168,7 +184,10 @@
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "C:\\Program Files\\dotnet\\library-packs": {},
-          "https://api.nuget.org/v3/index.json": {}
+          "D:\\source\\Cadastro\\Core\\bin\\Release": {},
+          "https://api.nuget.org/v3/index.json": {},
+          "https://thiagomoura.pkgs.visualstudio.com/2f3ab448-da2a-4a71-b7ec-68de68ccfaac/_packaging/InternalUtil/nuget/v3/index.json": {},
+          "https://thiagomoura.pkgs.visualstudio.com/53ac8218-792a-48dd-aca3-50c16bad75d5/_packaging/NuGetPrivado/nuget/v3/index.json": {}
         },
         "frameworks": {
           "net8.0": {
@@ -190,6 +209,10 @@
         "net8.0": {
           "targetAlias": "net8.0",
           "dependencies": {
+            "Google.Apis.Calendar.v3": {
+              "target": "Package",
+              "version": "[1.68.0.3473, )"
+            },
             "Microsoft.EntityFrameworkCore.SqlServer": {
               "target": "Package",
               "version": "[6.0.27, )"
@@ -200,6 +223,10 @@
               "target": "Package",
               "version": "[6.0.27, )"
             },
+            "Microsoft.Extensions.Configuration.UserSecrets": {
+              "target": "Package",
+              "version": "[6.0.1, )"
+            },
             "Microsoft.Extensions.DependencyInjection.Abstractions": {
               "target": "Package",
               "version": "[8.0.1, )"
@@ -207,6 +234,10 @@
             "Microsoft.Extensions.Http": {
               "target": "Package",
               "version": "[8.0.0, )"
+            },
+            "NodaTime": {
+              "target": "Package",
+              "version": "[3.1.11, )"
             }
           },
           "imports": [

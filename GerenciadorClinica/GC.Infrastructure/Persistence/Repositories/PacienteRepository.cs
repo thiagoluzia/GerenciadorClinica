@@ -137,9 +137,7 @@ namespace GC.Infrastructure.Persistence.Repositories
 
             try
             {
-                
-                
-
+                _contexto.Update(paciente);
                 await _contexto.SaveChangesAsync();
             }
             catch (DbUpdateConcurrencyException ex)

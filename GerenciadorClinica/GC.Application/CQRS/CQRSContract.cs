@@ -1,8 +1,4 @@
-﻿using MediatR;
-
-namespace GC.Application.CQRS
+﻿namespace GC.Application.CQRS
 {
-    public abstract class CQRSContract
-    {
-    }
+    public abstract class CQRSContract{}
 }

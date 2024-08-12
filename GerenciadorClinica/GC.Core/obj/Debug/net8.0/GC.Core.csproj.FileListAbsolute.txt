@@ -22,3 +22,4 @@ D:\source\GerenciadorClinica\GerenciadorClinica\GC.Core\obj\Debug\net8.0\GC.Core
 D:\source\GerenciadorClinica\GerenciadorClinica\GC.Core\obj\Debug\net8.0\refint\GC.Core.dll
 D:\source\GerenciadorClinica\GerenciadorClinica\GC.Core\obj\Debug\net8.0\GC.Core.pdb
 D:\source\GerenciadorClinica\GerenciadorClinica\GC.Core\obj\Debug\net8.0\ref\GC.Core.dll
+D:\source\GerenciadorClinica\GerenciadorClinica\GC.Core\obj\Debug\net8.0\GC.Core.csproj.AssemblyReference.cache

@@ -9,7 +9,8 @@ namespace GC.Core.Entityes
     {
         public double Altura { get; private set; }
         public double Peso { get; private set; }
-        public List<Atendimento> Atendimentos { get; private set; }
+        public List<Agendamento> Agendamentos { get; private set; }
+
 
 
         public Paciente(
@@ -27,7 +28,7 @@ namespace GC.Core.Entityes
         {
             Altura = altura;
             Peso = peso;
-            Atendimentos = new List<Atendimento>();
+            Agendamentos = new List<Agendamento>();
         }
 
         protected Paciente() { }

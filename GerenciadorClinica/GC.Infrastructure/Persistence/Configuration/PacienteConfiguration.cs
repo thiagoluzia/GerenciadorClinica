@@ -11,10 +11,10 @@ namespace GC.Infrastructure.Persistence.Configuration
             builder
                 .HasKey(x => x.Id);
 
-            builder.HasMany(x => x.Atendimentos)
-                          .WithOne()
-                          .HasForeignKey(x => x.Id)
-                          .OnDelete(DeleteBehavior.Restrict);
+            //builder.HasMany(p => p.Atendimentos)
+            //              .WithOne(a =>a.Paciente)
+            //              .HasForeignKey(a=> a.Id)
+            //              .OnDelete(DeleteBehavior.Restrict);
 
             builder
                .OwnsOne(d => d.Endereco, e =>

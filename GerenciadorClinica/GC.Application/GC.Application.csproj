@@ -7,22 +7,34 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\GC.Infrastructure\GC.Infrastructure.csproj" />
+    <Compile Remove="CQRS\Queries\Pacientes\BucarPacientePorTelefoneOrCpf\**" />
+    <Compile Remove="DTOs\InputModels\**" />
+    <Compile Remove="Services\Implementations\**" />
+    <Compile Remove="Services\Interfaces\**" />
+    <EmbeddedResource Remove="CQRS\Queries\Pacientes\BucarPacientePorTelefoneOrCpf\**" />
+    <EmbeddedResource Remove="DTOs\InputModels\**" />
+    <EmbeddedResource Remove="Services\Implementations\**" />
+    <EmbeddedResource Remove="Services\Interfaces\**" />
+    <None Remove="CQRS\Queries\Pacientes\BucarPacientePorTelefoneOrCpf\**" />
+    <None Remove="DTOs\InputModels\**" />
+    <None Remove="Services\Implementations\**" />
+    <None Remove="Services\Interfaces\**" />
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="CQRS\Commands\Atentimentos\" />
-    <Folder Include="CQRS\Queries\Atendimentos\" />
-    <Folder Include="CQRS\Queries\Pacientes\BucarPacientePorTelefoneOrCpf\" />
-    <Folder Include="DTOs\InputModels\" />
-    <Folder Include="Services\Implementations\" />
-    <Folder Include="Services\Interfaces\" />
+    <Folder Include="CQRS\Queries\Pacientes\BuscarPAcienteCpf\" />
+    <Folder Include="CQRS\Queries\Pacientes\BuscarPacienteTelefone\" />
   </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="FluentValidation.AspNetCore" Version="11.3.0" />
+    <PackageReference Include="Google.Apis.Calendar.v3" Version="1.68.0.3473" />
     <PackageReference Include="MediatR" Version="12.2.0" />
     <PackageReference Include="Microsoft.Extensions.Configuration.Json" Version="8.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\GC.Infrastructure\GC.Infrastructure.csproj" />
   </ItemGroup>
 
 </Project>

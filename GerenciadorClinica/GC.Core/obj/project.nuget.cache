@@ -1,8 +1,16 @@
 {
   "version": 2,
-  "dgSpecHash": "lg6EynZvWvlvQ0Oewg3C0pWIiFB7E+oRtVVZLVz8GU06qZYU618GUYSuwcOm+9Cvt1Xv98lTeD5k6HYv+xiy6Q==",
+  "dgSpecHash": "+CwEM2YRvqyoFMg/mCYrS9MT2HBFg0j6tL6+nTIr7/fOKHnWzEgrl7YkqvUY3uIYVVjrML2N1iWUFTUp8TttGw==",
   "success": true,
   "projectFilePath": "D:\\source\\GerenciadorClinica\\GerenciadorClinica\\GC.Core\\GC.Core.csproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "C:\\Users\\thiag\\.nuget\\packages\\google.apis\\1.68.0\\google.apis.1.68.0.nupkg.sha512",
+    "C:\\Users\\thiag\\.nuget\\packages\\google.apis.auth\\1.68.0\\google.apis.auth.1.68.0.nupkg.sha512",
+    "C:\\Users\\thiag\\.nuget\\packages\\google.apis.calendar.v3\\1.68.0.3473\\google.apis.calendar.v3.1.68.0.3473.nupkg.sha512",
+    "C:\\Users\\thiag\\.nuget\\packages\\google.apis.core\\1.68.0\\google.apis.core.1.68.0.nupkg.sha512",
+    "C:\\Users\\thiag\\.nuget\\packages\\newtonsoft.json\\13.0.3\\newtonsoft.json.13.0.3.nupkg.sha512",
+    "C:\\Users\\thiag\\.nuget\\packages\\system.codedom\\7.0.0\\system.codedom.7.0.0.nupkg.sha512",
+    "C:\\Users\\thiag\\.nuget\\packages\\system.management\\7.0.2\\system.management.7.0.2.nupkg.sha512"
+  ],
   "logs": []
 }

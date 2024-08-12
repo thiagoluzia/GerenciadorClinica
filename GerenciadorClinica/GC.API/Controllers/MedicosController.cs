@@ -15,10 +15,12 @@ namespace GC.API.Controllers
     {
         private readonly IMediator _mediator;
 
+
         public MedicosController(IMediator mediator)
         {
             _mediator = mediator;
         }
+
 
         [HttpGet]
         public async Task<IActionResult> GetAllMedico()
@@ -53,7 +55,6 @@ namespace GC.API.Controllers
 
             return CreatedAtAction(nameof(GetByIdMedicoAsync), new { id }, command);
         }
-
 
         [HttpPut("{id}")]
         public async Task<IActionResult> PutMedico(AtualizarMedicoCommand command, int id)

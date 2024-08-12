@@ -7,6 +7,7 @@ namespace GC.Application.CQRS.Queries.Servicos.BuscarServico
     {
         public int Id { get; set; }
 
+
         public BuscarServicoQuery(int id)
         {
             Id = id;

@@ -28,7 +28,10 @@
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "C:\\Program Files\\dotnet\\library-packs": {},
-          "https://api.nuget.org/v3/index.json": {}
+          "D:\\source\\Cadastro\\Core\\bin\\Release": {},
+          "https://api.nuget.org/v3/index.json": {},
+          "https://thiagomoura.pkgs.visualstudio.com/2f3ab448-da2a-4a71-b7ec-68de68ccfaac/_packaging/InternalUtil/nuget/v3/index.json": {},
+          "https://thiagomoura.pkgs.visualstudio.com/53ac8218-792a-48dd-aca3-50c16bad75d5/_packaging/NuGetPrivado/nuget/v3/index.json": {}
         },
         "frameworks": {
           "net8.0": {
@@ -45,6 +48,12 @@
       "frameworks": {
         "net8.0": {
           "targetAlias": "net8.0",
+          "dependencies": {
+            "Google.Apis.Calendar.v3": {
+              "target": "Package",
+              "version": "[1.68.0.3473, )"
+            }
+          },
           "imports": [
             "net461",
             "net462",
